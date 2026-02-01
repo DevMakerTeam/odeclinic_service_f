@@ -65,6 +65,14 @@ const PROCEDURES: Procedure[] = [
     description: '안전성과 효과를 모두 잡은 구형 PLLA 콜라겐 촉진제로 자연스러운 볼륨과 탄력을 개선합니다.',
     price: '1병 59만원',
     imageUrl: 'https://images.unsplash.com/photo-1629909615957-be38d48fbbe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGNsaW5pYyUyMGNvbnN1bHRhdGlvbnxlbnwxfHx8fDE3NjkzOTk5ODN8MA&ixlib=rb-4.1.0&q=80&w=1080'
+  },
+  {
+    id: 'radiesse',
+    category: '볼륨',
+    name: '레디어스',
+    description: 'CaHA 기반의 콜라겐 재생 촉진제로 팔자주름을 개선하고 즉각적인 볼륨 효과를 제공합니다.',
+    price: '1병 85만원',
+    imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBpbmplY3Rpb24lMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY5Mzk5OTgzfDA&ixlib=rb-4.1.0&q=80&w=1080'
   }
 ];
 
