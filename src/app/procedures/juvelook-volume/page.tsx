@@ -1,9 +1,32 @@
 import type { Metadata } from 'next';
 import PageContent from './PageContent';
+import { juvelookVolumeData } from '@/data/procedures/juvelook-volume';
+
+const title = `${juvelookVolumeData.info.title} | 오드의원`;
+const description = juvelookVolumeData.info.description;
 
 export const metadata: Metadata = {
-  title: '쥬베룩볼륨 - 효과부터 부작용, 결절 예방까지 | 오드의원',
-  description: '쥬베룩볼륨 시술, 효과는 극대화하고 부작용 걱정은 덜어내세요. 오드의원만의 철저한 수화 및 정교한 주입 테크닉과 맞춤 디자인으로 자연스럽게 차오르는 볼륨을 경험해보세요.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [
+      {
+        url: juvelookVolumeData.hero.image.src,
+        width: 1200,
+        height: 630,
+        alt: juvelookVolumeData.hero.alt,
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [juvelookVolumeData.hero.image.src],
+  },
 };
 
 export default function JuvelookVolumePage() {

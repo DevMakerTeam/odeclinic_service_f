@@ -1,9 +1,32 @@
 import type { Metadata } from 'next';
 import PageContent from './PageContent';
+import { sculptraData } from '@/data/procedures/sculptra';
+
+const title = `${sculptraData.info.title} | 오드의원`;
+const description = sculptraData.info.description;
 
 export const metadata: Metadata = {
-  title: '스컬트라 - 필러 대신 콜라겐 합성 효과부터 후기까지 | 오드의원',
-  description: '시간이 흐를수록 자연스럽게 차오르는 볼륨, 오드의원 스컬트라를 만나보세요. FDA 승인을 받은 안전한 PLLA 성분으로 피부 속 콜라겐을 직접 재생시킵니다.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [
+      {
+        url: sculptraData.hero.image.src,
+        width: 1200,
+        height: 630,
+        alt: sculptraData.hero.alt,
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [sculptraData.hero.image.src],
+  },
 };
 
 export default function SculptraPage() {

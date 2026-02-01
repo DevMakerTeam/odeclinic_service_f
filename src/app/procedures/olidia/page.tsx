@@ -1,10 +1,32 @@
 import type { Metadata } from 'next';
 import PageContent from './PageContent';
+import { olidiaData } from '@/data/procedures/olidia';
+
+const title = `${olidiaData.info.title} | 오드의원`;
+const description = olidiaData.info.description;
 
 export const metadata: Metadata = {
-  title: '올리디아 - 필러보다 자연스러운 볼륨 효과 | 오드의원',
-  description:
-    '쥬베룩은 아쉽고, 스컬트라는 부담스럽다면? 안전성과 효과를 모두 검증받은 PLLA 촉진제 오드의원 올리디아! 자연스러운 볼륨감을 원하시는 분들께 추천드립니다.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [
+      {
+        url: olidiaData.hero.image.src,
+        width: 1200,
+        height: 630,
+        alt: olidiaData.hero.alt,
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    images: [olidiaData.hero.image.src],
+  },
 };
 
 export default function OlidiaPage() {
