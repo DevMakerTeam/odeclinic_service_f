@@ -57,6 +57,14 @@ const PROCEDURES: Procedure[] = [
     description: 'FDA 승인 PLLA 성분으로 자가 콜라겐 합성을 유도하여 자연스럽고 오래가는 볼륨을 만듭니다.',
     price: '1병 69만원',
     imageUrl: 'https://images.unsplash.com/photo-1674049406179-d7bf2c263e71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGxhc2VyJTIwcHJvY2VkdXJlJTIwY2xvc2UlMjB1cHxlbnwxfHx8fDE3Njk0OTk5MTl8MA&ixlib=rb-4.1.0&q=80&w=1080'
+  },
+  {
+    id: 'olidia',
+    category: '볼륨',
+    name: '올리디아',
+    description: '안전성과 효과를 모두 잡은 구형 PLLA 콜라겐 촉진제로 자연스러운 볼륨과 탄력을 개선합니다.',
+    price: '1병 59만원',
+    imageUrl: 'https://images.unsplash.com/photo-1629909615957-be38d48fbbe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGNsaW5pYyUyMGNvbnN1bHRhdGlvbnxlbnwxfHx8fDE3NjkzOTk5ODN8MA&ixlib=rb-4.1.0&q=80&w=1080'
   }
 ];
 
