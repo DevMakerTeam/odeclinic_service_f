@@ -1,0 +1,26 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Base font styles */
+body {
+  font-family: "Pretendard", "Inter", sans-serif;
+}
+
+/* Desktop background - only on large screens */
+@media (min-width: 1024px) {
+  .desktop-only-bg {
+    background-color: #f1f5f9;
+    background-image: radial-gradient(circle at center, #f8fafc 0%, #cbd5e1 100%);
+  }
+}
