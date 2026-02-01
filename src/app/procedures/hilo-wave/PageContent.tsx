@@ -42,32 +42,36 @@ export default function HiloWavePageContent() {
           <div className="text-center mb-10 md:mb-16">
             <SectionHeading>힐로웨이브 효과</SectionHeading>
           </div>
-          
+
           <div className="space-y-16 md:space-y-20">
             {/* POINT 01 */}
             <div className="flex flex-col gap-6 md:gap-8">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 01
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
-                  <motion.span 
-                    initial={{ backgroundSize: "0% 100%" }} 
-                    whileInView={{ backgroundSize: "100% 100%" }} 
-                    viewport={{ once: true }} 
-                    transition={{ duration: 1, ease: "easeOut" }} 
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
+                  <motion.span
+                    initial={{ backgroundSize: '0% 100%' }}
+                    whileInView={{ backgroundSize: '100% 100%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
                     className="bg-[linear-gradient(to_top,transparent_2px,#a58d7d_2px,#a58d7d_10px,transparent_10px)] box-decoration-clone bg-no-repeat bg-left-bottom"
                   >
                     힐로웨이브
-                  </motion.span>란,
+                  </motion.span>
+                  란,
                 </h3>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-4">
-                  힐로웨이브는 고분자 + 저분자 히알루론산 복합체로, 얼굴의 꺼진 볼륨을 자연스럽게 채우는 시술입니다.
+                  힐로웨이브는 고분자 + 저분자 히알루론산 복합체로, 얼굴의 꺼진 볼륨을 자연스럽게
+                  채우는 시술입니다.
                 </p>
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
-                  부작용이 거의 없어서 안전한 시술을 원하시는 분들에게 추천드립니다.
+                  부작용이 거의 없어서{' '}
+                  <span className="text-white bg-[#3F342D] px-1">안전한 시술을 원하시는 분들</span>
+                  에게 추천드립니다.
                 </p>
               </div>
             </div>
@@ -75,25 +79,26 @@ export default function HiloWavePageContent() {
             {/* POINT 02 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 02
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
-                  <motion.span 
-                    initial={{ backgroundSize: "0% 100%" }} 
-                    whileInView={{ backgroundSize: "100% 100%" }} 
-                    viewport={{ once: true }} 
-                    transition={{ duration: 1, ease: "easeOut" }} 
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
+                  <motion.span
+                    initial={{ backgroundSize: '0% 100%' }}
+                    whileInView={{ backgroundSize: '100% 100%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
                     className="bg-[linear-gradient(to_top,transparent_2px,#a58d7d_2px,#a58d7d_10px,transparent_10px)] box-decoration-clone bg-no-repeat bg-left-bottom"
                   >
                     힐로웨이브와 필러의 차이
-                  </motion.span>는 무엇인가요?
+                  </motion.span>
+                  는 무엇인가요?
                 </h3>
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
-                  <ImageWithFallback 
-                    src={hiloWaveData.chartImage} 
-                    alt="힐로웨이브와 필러 비교" 
-                    className="w-full object-cover" 
+                  <ImageWithFallback
+                    src={hiloWaveData.chartImage}
+                    alt="힐로웨이브와 필러 비교"
+                    className="w-full object-cover"
                   />
                 </div>
               </div>
@@ -102,19 +107,27 @@ export default function HiloWavePageContent() {
                   둘 다 히알루론산 기반으로 즉각적으로 볼륨을 개선한다는 점은 같습니다.
                 </p>
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-4">
-                  하지만, 힐로웨이브는 BDDE라는 가교제가 최소한으로 포함되어있어 전통적인 필러에 비해 이물감이나 혈관 폐색 부작용을 일으킬 가능성이 적습니다.
+                  하지만, 힐로웨이브는 BDDE라는 가교제가 최소한으로 포함되어있어 전통적인 필러에
+                  비해{' '}
+                  <span className="text-white bg-[#3F342D] px-1">
+                    이물감이나 혈관 폐색 부작용을 일으킬 가능성이 적습니다.
+                  </span>
                 </p>
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
                   다만, 시술 가능한 부위가 한정적이고, 유지기간이 다소 짧다는 단점이 있습니다.
                 </p>
-                
+
                 <div className="border rounded-2xl overflow-hidden shadow-sm mt-4 bg-white">
                   <Table className="w-full table-fixed">
                     <TableHeader className="bg-[#f4f0ec]">
                       <TableRow>
                         <TableHead className="w-[26%] border-r border-gray-200 px-1 text-center text-xs md:text-base py-3 md:py-4 md:px-4 text-[#8a7e75]"></TableHead>
-                        <TableHead className="w-[37%] border-r border-gray-200 px-1 text-center text-xs md:text-base py-3 md:py-4 md:px-4 text-[#483C32] font-extrabold bg-[#e8e2dc]">힐로웨이브</TableHead>
-                        <TableHead className="w-[37%] px-1 text-center text-xs md:text-base py-3 md:py-4 md:px-4 text-[#8a7e75]">필러</TableHead>
+                        <TableHead className="w-[37%] px-1 text-center text-xs md:text-base py-3 md:py-4 md:px-4 text-[#483C32] font-extrabold bg-[#e8e2dc] border-l-[3px] border-t-[3px] border-r-[3px] border-[#9A5737]">
+                          힐로웨이브
+                        </TableHead>
+                        <TableHead className="w-[37%] px-1 text-center text-xs md:text-base py-3 md:py-4 md:px-4 text-[#8a7e75]">
+                          필러
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -129,7 +142,9 @@ export default function HiloWavePageContent() {
                           <TableCell className="border-r border-gray-200 px-1 py-3 md:py-4 md:px-4 text-center text-xs md:text-base font-medium text-[#8a7e75] break-keep">
                             {label}
                           </TableCell>
-                          <TableCell className="border-r border-gray-200 px-1 py-3 md:py-4 md:px-4 text-center text-xs md:text-base font-bold text-[#483C32] bg-[#f4f0ec] break-keep">
+                          <TableCell
+                            className={`px-1 py-3 md:py-4 md:px-4 text-center text-xs md:text-base font-extrabold text-[#483C32] bg-[#f4f0ec] break-keep border-l-[3px] border-r-[3px] border-[#9A5737] ${idx === 4 ? 'border-b-[3px]' : ''}`}
+                          >
                             {hilo}
                           </TableCell>
                           <TableCell className="px-1 py-3 md:py-4 md:px-4 text-center text-xs md:text-base text-[#8a7e75] break-keep">
@@ -146,35 +161,38 @@ export default function HiloWavePageContent() {
             {/* POINT 03 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 03
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   힐로웨이브{' '}
-                  <motion.span 
-                    initial={{ backgroundSize: "0% 100%" }} 
-                    whileInView={{ backgroundSize: "100% 100%" }} 
-                    viewport={{ once: true }} 
-                    transition={{ duration: 1, ease: "easeOut" }} 
+                  <motion.span
+                    initial={{ backgroundSize: '0% 100%' }}
+                    whileInView={{ backgroundSize: '100% 100%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
                     className="bg-[linear-gradient(to_top,transparent_2px,#a58d7d_2px,#a58d7d_10px,transparent_10px)] box-decoration-clone bg-no-repeat bg-left-bottom"
                   >
                     시술 가능한 부위
-                  </motion.span>는 어디인가요?
+                  </motion.span>
+                  는 어디인가요?
                 </h3>
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
-                  <ImageWithFallback 
-                    src={hiloWaveData.treatmentAreasImage} 
-                    alt="힐로웨이브 시술 가능 부위" 
-                    className="w-full object-cover" 
+                  <ImageWithFallback
+                    src={hiloWaveData.treatmentAreasImage}
+                    alt="힐로웨이브 시술 가능 부위"
+                    className="w-full object-cover"
                   />
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
-                  힐로웨이브는 물성이 묽기 때문에, 이마, 코, 입술 등 모양을 만들고 잡아줘야하는 부위보다는,{' '}
+                  힐로웨이브는 물성이 묽기 때문에, 이마, 코, 입술 등 모양을 만들고 잡아줘야하는
+                  부위보다는,{' '}
                   <span className="text-white bg-[#3F342D] px-1">
                     넓게 꺼져있는 볼, 앞광대 (중안부), 팔자주름 볼륨
-                  </span>을 채우기에 좋습니다.
+                  </span>
+                  을 채우기에 좋습니다.
                 </p>
               </div>
             </div>
@@ -182,40 +200,52 @@ export default function HiloWavePageContent() {
             {/* POINT 04 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 04
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   힐로웨이브와{' '}
-                  <motion.span 
-                    initial={{ backgroundSize: "0% 100%" }} 
-                    whileInView={{ backgroundSize: "100% 100%" }} 
-                    viewport={{ once: true }} 
-                    transition={{ duration: 1, ease: "easeOut" }} 
+                  <motion.span
+                    initial={{ backgroundSize: '0% 100%' }}
+                    whileInView={{ backgroundSize: '100% 100%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
                     className="bg-[linear-gradient(to_top,transparent_2px,#a58d7d_2px,#a58d7d_10px,transparent_10px)] box-decoration-clone bg-no-repeat bg-left-bottom"
                   >
                     쥬베룩볼륨, 스컬트라, 올리디아는 어떻게 다른가요?
                   </motion.span>
                 </h3>
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
-                  <ImageWithFallback 
-                    src={hiloWaveData.productComparisonImage} 
-                    alt="힐로웨이브와 타 제품 비교" 
-                    className="w-full object-cover" 
+                  <ImageWithFallback
+                    src={hiloWaveData.productComparisonImage}
+                    alt="힐로웨이브와 타 제품 비교"
+                    className="w-full object-cover"
                   />
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
                 <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-6 md:mb-8">
-                  모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만 힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에{' '}
-                  <span className="text-white bg-[#3F342D] px-1">시술 직후 즉각적으로 채워지고</span>, 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐 합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가 있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게 일어났을 때, 결절이라는 부작용이 생길 수도 있죠.{' '}
-                  <span className="text-white bg-[#3F342D] px-1">힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술</span>입니다.
+                  모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만
+                  힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에{' '}
+                  <span className="text-white bg-[#3F342D] px-1">
+                    시술 직후 즉각적으로 채워지고
+                  </span>
+                  , 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐
+                  합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가
+                  있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게
+                  일어났을 때, 결절이라는 부작용이 생길 수도 있죠.{' '}
+                  <span className="text-white bg-[#3F342D] px-1">
+                    힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술
+                  </span>
+                  입니다.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                   <div className="bg-[#e9e5e0] p-5 md:p-6 rounded-2xl border border-[#dcd8d4] flex flex-col justify-center">
                     <p className="font-bold text-[#483C32] text-base md:text-lg mb-2">힐로웨이브</p>
                     <p className="text-[#483C32] text-sm md:text-base font-medium">
-                      유지기간이 짧지만,<br/>즉각적이고 안전한 시술을 원한다면?
+                      유지기간이 짧지만,
+                      <br />
+                      즉각적이고 안전한 시술을 원한다면?
                     </p>
                   </div>
                   <div className="bg-white p-5 md:p-6 rounded-2xl border border-[#dcd8d4] flex flex-col justify-center">

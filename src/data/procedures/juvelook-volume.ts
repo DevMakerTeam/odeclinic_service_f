@@ -115,13 +115,14 @@ export const juvelookVolumeData = {
   maintenance: {
     title: '쥬베룩볼륨 유지기간, 주기',
     content:
-      '쥬베룩볼륨의 유지기간은 <span class="text-[#a58d7d] font-bold">1년 반 ~ 2년</span>입니다.<br class="hidden md:block" />쥬베룩볼륨은 한 달 간격으로 3회 시술 받고나서, 1년 반 ~ 2년마다 1회씩 리터치 받는 것을 권장드립니다.',
+      '쥬베룩볼륨의 유지기간은 <span class="text-[#a58d7d] font-bold">1년 반 ~ 2년</span>입니다.<br />쥬베룩볼륨은 한 달 간격으로 3회 시술 받고나서, 1년 반 ~ 2년마다 1회씩 리터치 받는 것을 권장드립니다.',
   },
 
   // Pricing
   pricing: {
     title: '쥬베룩볼륨 가격, 비용',
-    subtitle: '오드의원 쥬베룩볼륨 가격은 다음과 같습니다. (부가세 별도)',
+    subtitle: '오드의원 쥬베룩볼륨 가격은 다음과 같습니다.',
+    note: '(부가세 별도)',
     items: [
       { name: '쥬베룩볼륨 1병 1회', price: '49만원' },
       { name: '쥬베룩볼륨 1병 3회', price: '135만원', highlight: true },

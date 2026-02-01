@@ -32,8 +32,8 @@ export function PricingSection({ title, subtitle, note, items }: PricingSectionP
         <div className="bg-white rounded-3xl shadow-sm border overflow-hidden max-w-2xl mx-auto">
           <div className="divide-y">
             {items.map((item, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`p-5 md:p-6 flex justify-between items-center hover:bg-[#f4f0ec] transition-colors ${
                   item.highlight ? 'bg-[#e9e5e0]/30' : ''
                 }`}
@@ -41,18 +41,20 @@ export function PricingSection({ title, subtitle, note, items }: PricingSectionP
                 <span className="font-medium text-sm md:text-base whitespace-nowrap text-[#483C32]">
                   {item.name}
                 </span>
-                <span className={`font-bold text-lg md:text-xl ${
-                  item.highlight ? 'text-[#a58d7d]' : 'text-[#483C32]'
-                }`}>
+                <span
+                  className={`font-bold text-lg md:text-xl ${
+                    item.highlight ? 'text-[#a58d7d]' : 'text-[#483C32]'
+                  }`}
+                >
                   {item.price}
                 </span>
               </div>
             ))}
           </div>
         </div>
-        
+
         <div className="mt-8 text-center">
-          <Button 
+          <Button
             onClick={() => router.push('/events')}
             className="bg-[#483C32] hover:bg-[#362d26] text-white text-base md:text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           >

@@ -39,10 +39,10 @@ export default function OlidiaPageContent() {
             {/* POINT 01 - 구형 PLLA */}
             <div className="flex flex-col gap-6 md:gap-8">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 01
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   안전성과 효과를 모두 잡은{' '}
                   <motion.span
                     initial={{ backgroundSize: '0% 100%' }}
@@ -81,10 +81,10 @@ export default function OlidiaPageContent() {
             {/* POINT 02 - 피부 탄력 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 02
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   볼륨 뿐만 아니라,{' '}
                   <motion.span
                     initial={{ backgroundSize: '0% 100%' }}
@@ -126,10 +126,10 @@ export default function OlidiaPageContent() {
             {/* POINT 03 - 결절 예방 3원칙 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 03
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   <motion.span
                     initial={{ backgroundSize: '0% 100%' }}
                     whileInView={{ backgroundSize: '100% 100%' }}
@@ -174,10 +174,10 @@ export default function OlidiaPageContent() {
             {/* POINT 04 - 시술 가능 부위 */}
             <div className="flex flex-col gap-6 md:gap-8 border-t pt-16 md:pt-20">
               <div>
-                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3">
+                <span className="text-[#a58d7d] font-bold text-lg md:text-xl block mb-2 md:mb-3 pl-2">
                   POINT 04
                 </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight break-keep pl-2">
                   올리디아{' '}
                   <motion.span
                     initial={{ backgroundSize: '0% 100%' }}
