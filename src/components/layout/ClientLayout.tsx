@@ -43,7 +43,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <>
       {/* Left Sidebar - Hidden on Mobile */}
-      <aside className="hidden lg:flex flex-col justify-center w-[400px] py-12 px-8 overflow-y-auto hide-scrollbar absolute left-[calc(50%-850px)] h-full z-10">
+      <aside className="hidden lg:flex flex-col justify-center w-[400px] py-12 px-8 overflow-y-auto hide-scrollbar absolute left-[calc(50%-780px)] h-full z-10">
         {/* Search Input */}
         <div className="relative mb-6 group">
           <input
