@@ -11,6 +11,7 @@ import { sculptraData } from '@/data/procedures/sculptra';
 import { olidiaData } from '@/data/procedures/olidia';
 import { radiesseData } from '@/data/procedures/radiesse';
 import { ultracolData } from '@/data/procedures/ultracol';
+import { undereyeFillerData } from '@/data/procedures/undereye-filler';
 
 // Mock Data
 type Category = '볼륨' | '리프팅' | '타이트닝' | '스킨부스터' | '프라이빗 바디 센터' | '웨딩';
@@ -81,6 +82,14 @@ const PROCEDURES: Procedure[] = [
     description: ultracolData.info.description,
     price: '1병 49만원',
     image: ultracolData.hero.image,
+  },
+  {
+    id: 'undereye-filler',
+    category: '볼륨',
+    name: undereyeFillerData.info.displayTitle,
+    description: undereyeFillerData.info.description,
+    price: '0.5cc 45만원',
+    image: undereyeFillerData.hero.image,
   },
 ];
 
