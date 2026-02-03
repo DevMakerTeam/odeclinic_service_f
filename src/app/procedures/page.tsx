@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import hiloWaveHero from '@/assets/procedures/hilowave/hilowave-hero.png';
-import juvelookHero from '@/assets/procedures/juvelook/juvelook-hero.png';
-import sculptraHero from '@/assets/procedures/sculptra/sculptra-hero.png';
-import olidiaHero from '@/assets/procedures/olidia/olidia-hero.png';
-import radiesseHero from '@/assets/procedures/radiesse/radiesse-hero.jpg';
-import ultracolHero from '@/assets/procedures/ultracol/ultracol-hero.png';
+import { hiloWaveData } from '@/data/procedures/hilo-wave';
+import { juvelookVolumeData } from '@/data/procedures/juvelook-volume';
+import { sculptraData } from '@/data/procedures/sculptra';
+import { olidiaData } from '@/data/procedures/olidia';
+import { radiesseData } from '@/data/procedures/radiesse';
+import { ultracolData } from '@/data/procedures/ultracol';
 
 // Mock Data
 type Category = '볼륨' | '리프팅' | '타이트닝' | '스킨부스터' | '프라이빗 바디 센터' | '웨딩';
@@ -21,7 +21,7 @@ const CATEGORIES: Category[] = [
   '타이트닝',
   '스킨부스터',
   '프라이빗 바디 센터',
-  '웨딩'
+  '웨딩',
 ];
 
 interface Procedure {
@@ -37,63 +37,63 @@ const PROCEDURES: Procedure[] = [
   {
     id: 'hilo-wave',
     category: '볼륨',
-    name: '힐로웨이브',
-    description: '고분자 및 저분자 히알루론산(HA) 복합 성분으로 자연스러운 볼륨과 탄력을 개선합니다.',
+    name: hiloWaveData.info.displayTitle,
+    description: hiloWaveData.info.description,
     price: '1회 60만원',
-    image: hiloWaveHero,
+    image: hiloWaveData.hero.image,
   },
   {
     id: 'juvelook-volume',
     category: '볼륨',
-    name: '쥬베룩 볼륨',
-    description: '자가 콜라겐 생성을 유도하는 PDLLA와 히알루론산(HA)이 결합된 스킨부스터입니다.',
+    name: juvelookVolumeData.info.displayTitle,
+    description: juvelookVolumeData.info.description,
     price: '1병 49만원',
-    image: juvelookHero,
+    image: juvelookVolumeData.hero.image,
   },
   {
     id: 'sculptra',
     category: '볼륨',
-    name: '스컬트라',
-    description: 'FDA 승인 PLLA 성분으로 자가 콜라겐 합성을 유도하여 자연스럽고 오래가는 볼륨을 만듭니다.',
+    name: sculptraData.info.displayTitle,
+    description: sculptraData.info.description,
     price: '1병 69만원',
-    image: sculptraHero,
+    image: sculptraData.hero.image,
   },
   {
     id: 'olidia',
     category: '볼륨',
-    name: '올리디아',
-    description: '안전성과 효과를 모두 잡은 구형 PLLA 콜라겐 촉진제로 자연스러운 볼륨과 탄력을 개선합니다.',
+    name: olidiaData.info.displayTitle,
+    description: olidiaData.info.description,
     price: '1병 59만원',
-    image: olidiaHero,
+    image: olidiaData.hero.image,
   },
   {
     id: 'radiesse',
     category: '볼륨',
-    name: '레디어스',
-    description: 'CaHA 기반의 콜라겐 재생 촉진제로 팔자주름을 개선하고 즉각적인 볼륨 효과를 제공합니다.',
+    name: radiesseData.info.displayTitle,
+    description: radiesseData.info.description,
     price: '1병 85만원',
-    image: radiesseHero,
+    image: radiesseData.hero.image,
   },
   {
     id: 'ultracol',
     category: '볼륨',
-    name: '울트라콜 200',
-    description: 'PDO 기반의 안전한 콜라겐부스터로 눈밑 등 얇은 부위에도 시술 가능하며 탄력을 개선합니다.',
+    name: ultracolData.info.displayTitle,
+    description: ultracolData.info.description,
     price: '1병 49만원',
-    image: ultracolHero,
-  }
+    image: ultracolData.hero.image,
+  },
 ];
 
 export default function ProceduresPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('볼륨');
   const router = useRouter();
 
-  const filteredProcedures = PROCEDURES.filter(p => p.category === selectedCategory);
+  const filteredProcedures = PROCEDURES.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-5 md:px-10 py-8">
       <h1 className="text-3xl font-bold mb-8 text-center">시술 안내</h1>
-      
+
       {/* Categories */}
       <div className="flex flex-wrap gap-2 justify-center mb-10">
         {CATEGORIES.map((category) => (
