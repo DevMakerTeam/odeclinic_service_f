@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
+import hiloWaveHero from '@/assets/procedures/hilowave/hilowave-hero.png';
+import juvelookHero from '@/assets/procedures/juvelook/juvelook-hero.png';
+import sculptraHero from '@/assets/procedures/sculptra/sculptra-hero.png';
+import olidiaHero from '@/assets/procedures/olidia/olidia-hero.png';
+import radiesseHero from '@/assets/procedures/radiesse/radiesse-hero.jpg';
+import ultracolHero from '@/assets/procedures/ultracol/ultracol-hero.png';
 
 // Mock Data
 type Category = '볼륨' | '리프팅' | '타이트닝' | '스킨부스터' | '프라이빗 바디 센터' | '웨딩';
@@ -30,7 +30,7 @@ interface Procedure {
   name: string;
   description: string;
   price: string;
-  imageUrl: string;
+  image: any;
 }
 
 const PROCEDURES: Procedure[] = [
@@ -40,7 +40,7 @@ const PROCEDURES: Procedure[] = [
     name: '힐로웨이브',
     description: '고분자 및 저분자 히알루론산(HA) 복합 성분으로 자연스러운 볼륨과 탄력을 개선합니다.',
     price: '1회 60만원',
-    imageUrl: 'https://images.unsplash.com/photo-1642844613096-7b743b7d9915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBtZWRpY2FsJTIwbGFzZXIlMjB0cmVhdG1lbnQlMjBtYWNoaW5lJTIwY2xpbmljfGVufDF8fHx8MTc2ODkyMTM5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+    image: hiloWaveHero,
   },
   {
     id: 'juvelook-volume',
@@ -48,7 +48,7 @@ const PROCEDURES: Procedure[] = [
     name: '쥬베룩 볼륨',
     description: '자가 콜라겐 생성을 유도하는 PDLLA와 히알루론산(HA)이 결합된 스킨부스터입니다.',
     price: '1병 49만원',
-    imageUrl: 'https://images.unsplash.com/photo-1620755901999-166c6c151efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBza2luJTIwdHJlYXRtZW50JTIwY2xpbmljJTIwY29uc3VsdGF0aW9ufGVufDF8fHx8MTc2OTc3NzAzMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+    image: juvelookHero,
   },
   {
     id: 'sculptra',
@@ -56,7 +56,7 @@ const PROCEDURES: Procedure[] = [
     name: '스컬트라',
     description: 'FDA 승인 PLLA 성분으로 자가 콜라겐 합성을 유도하여 자연스럽고 오래가는 볼륨을 만듭니다.',
     price: '1병 69만원',
-    imageUrl: 'https://images.unsplash.com/photo-1674049406179-d7bf2c263e71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGxhc2VyJTIwcHJvY2VkdXJlJTIwY2xvc2UlMjB1cHxlbnwxfHx8fDE3Njk0OTk5MTl8MA&ixlib=rb-4.1.0&q=80&w=1080'
+    image: sculptraHero,
   },
   {
     id: 'olidia',
@@ -64,7 +64,7 @@ const PROCEDURES: Procedure[] = [
     name: '올리디아',
     description: '안전성과 효과를 모두 잡은 구형 PLLA 콜라겐 촉진제로 자연스러운 볼륨과 탄력을 개선합니다.',
     price: '1병 59만원',
-    imageUrl: 'https://images.unsplash.com/photo-1629909615957-be38d48fbbe6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGNsaW5pYyUyMGNvbnN1bHRhdGlvbnxlbnwxfHx8fDE3NjkzOTk5ODN8MA&ixlib=rb-4.1.0&q=80&w=1080'
+    image: olidiaHero,
   },
   {
     id: 'radiesse',
@@ -72,7 +72,15 @@ const PROCEDURES: Procedure[] = [
     name: '레디어스',
     description: 'CaHA 기반의 콜라겐 재생 촉진제로 팔자주름을 개선하고 즉각적인 볼륨 효과를 제공합니다.',
     price: '1병 85만원',
-    imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBpbmplY3Rpb24lMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzY5Mzk5OTgzfDA&ixlib=rb-4.1.0&q=80&w=1080'
+    image: radiesseHero,
+  },
+  {
+    id: 'ultracol',
+    category: '볼륨',
+    name: '울트라콜 200',
+    description: 'PDO 기반의 안전한 콜라겐부스터로 눈밑 등 얇은 부위에도 시술 가능하며 탄력을 개선합니다.',
+    price: '1병 49만원',
+    image: ultracolHero,
   }
 ];
 
@@ -112,29 +120,28 @@ export default function ProceduresPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              whileHover={{ y: -5 }}
-              className="cursor-pointer"
               onClick={() => router.push(`/procedures/${proc.id}`)}
             >
-              <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow border-none shadow-sm">
-                <div className="relative h-48 overflow-hidden bg-gray-100">
+              <Card className="flex flex-row h-32 overflow-hidden bg-white hover:bg-[#faf9f8] border border-[#483C32]/10 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group gap-0">
+                <div className="w-32 h-full flex-shrink-0 bg-gray-100 relative overflow-hidden">
                   <Image
-                    src={proc.imageUrl}
+                    src={proc.image}
                     alt={proc.name}
-                    width={1080}
-                    height={192}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl">{proc.name}</CardTitle>
-                  <CardDescription className="line-clamp-2 mt-2">
+                <div className="flex-1 flex flex-col justify-center p-4 min-w-0">
+                  <div className="mb-1">
+                    <h4 className="text-base font-bold text-[#483C32] group-hover:text-[#ab9178] transition-colors duration-300 truncate">
+                      {proc.name}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-[#483C32]/60 line-clamp-2 leading-relaxed">
                     {proc.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter className="mt-auto pt-0 text-lg font-semibold text-gray-900">
-                  {proc.price}
-                </CardFooter>
+                  </p>
+                </div>
               </Card>
             </motion.div>
           ))
