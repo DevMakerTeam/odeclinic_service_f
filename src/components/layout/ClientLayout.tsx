@@ -2,14 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import instagramIcon from '@/assets/icons/social/social-instagram.png';
-import youtubeIcon from '@/assets/icons/social/social-youtube.png';
-import naverIcon from '@/assets/icons/social/social-naver.png';
-import kakaoIcon from '@/assets/icons/social/social-kakao.png';
-import logo from '@/assets/icons/logo.png';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { User, ShoppingBag } from 'lucide-react';
-import Image from 'next/image';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -49,44 +43,64 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <>
       {/* Left Sidebar - Hidden on Mobile */}
-      <aside className="hidden lg:flex flex-col justify-center w-[400px] py-12 px-8">
-        <div className="mb-6">
-          <Image src={logo} alt="ODE CLINIC" className="w-64 object-contain" />
+      <aside className="hidden lg:flex flex-col justify-center w-[400px] py-12 px-8 overflow-y-auto hide-scrollbar absolute left-[calc(50%-850px)] h-full z-10">
+        {/* Search Input */}
+        <div className="relative mb-6 group">
+          <input
+            type="text"
+            placeholder="시술명, 증상을 검색해보세요"
+            className="w-full bg-white border border-[#483C32]/10 rounded-full py-3.5 pl-12 pr-4 text-sm text-[#483C32] placeholder-[#483C32]/30 focus:outline-none focus:border-[#483C32]/30 transition-all shadow-sm focus:shadow-md"
+          />
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#483C32]/30 group-focus-within:text-[#483C32]/50 transition-colors">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
         </div>
 
-        <div>
-          <p className="text-[10px] font-bold text-[#483C32]/40 uppercase tracking-widest mb-5">
-            Official Channels
-          </p>
-          <div className="flex gap-4 items-center">
-            <a
-              className="block w-10 h-10 flex-shrink-0 hover:opacity-80 transition-opacity duration-300"
-              href="#"
-              title="Instagram"
-            >
-              <Image src={instagramIcon} alt="Instagram" className="w-full h-full object-cover" />
-            </a>
-            <a
-              className="block w-10 h-10 flex-shrink-0 hover:opacity-80 transition-opacity duration-300"
-              href="#"
-              title="YouTube"
-            >
-              <Image src={youtubeIcon} alt="YouTube" className="w-full h-full object-cover" />
-            </a>
-            <a
-              className="block w-10 h-10 flex-shrink-0 hover:opacity-80 transition-opacity duration-300"
-              href="#"
-              title="Naver Booking"
-            >
-              <Image src={naverIcon} alt="Naver Booking" className="w-full h-full object-cover" />
-            </a>
-            <a
-              className="block w-10 h-10 flex-shrink-0 hover:opacity-80 transition-opacity duration-300"
-              href="#"
-              title="Kakao Inquiry"
-            >
-              <Image src={kakaoIcon} alt="Kakao Inquiry" className="w-full h-full object-cover" />
-            </a>
+        {/* Popular Keywords */}
+        <div className="mb-10">
+          <div className="flex flex-wrap gap-2">
+            {['볼륨', '리프팅', '타이트닝', '스킨부스터', '프라이빗 바디 센터', '웨딩'].map(
+              (tag) => (
+                <button
+                  key={tag}
+                  onClick={() => router.push('/procedures')}
+                  className="px-4 py-2 bg-white border border-[#483C32]/10 rounded-lg text-sm text-[#483C32]/80 hover:bg-[#483C32] hover:text-white hover:border-[#483C32] hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
+                >
+                  {tag}
+                </button>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* Promotion Banner */}
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-xl group cursor-pointer h-auto aspect-[3/4]">
+          <img
+            src="https://images.unsplash.com/photo-1762631203805-88841687ab4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwc3BhJTIwYWVzdGhldGljfGVufDF8fHx8MTc3MDA4MjE5Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Promotion Banner"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#483C32]/60 via-transparent to-transparent flex flex-col justify-end p-6">
+            <span className="text-white/90 text-xs font-medium mb-1 tracking-wider uppercase">
+              Special Offer
+            </span>
+            <h3 className="text-white text-2xl font-serif">
+              Monthly
+              <br />
+              Signature Event
+            </h3>
           </div>
         </div>
       </aside>
