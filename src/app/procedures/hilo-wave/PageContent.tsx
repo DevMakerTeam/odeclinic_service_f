@@ -63,16 +63,25 @@ export default function HiloWavePageContent() {
                   란,
                 </h3>
               </div>
-              <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-4">
-                  힐로웨이브는 고분자 + 저분자 히알루론산 복합체로, 얼굴의 꺼진 볼륨을 자연스럽게
-                  채우는 시술입니다.
-                </p>
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
-                  부작용이 거의 없어서{' '}
-                  <span className="text-white bg-[#3F342D] px-1">안전한 시술을 원하시는 분들</span>
-                  에게 추천드립니다.
-                </p>
+              <div>
+                <div className="rounded-2xl overflow-hidden shadow-sm border border-[#e9e5e0] mb-6 md:mb-8">
+                  <ImageWithFallback
+                    src={hiloWaveData.images.hiloWave3}
+                    alt="힐로웨이브 제품 컨셉 이미지"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
+                  {hiloWaveData.effects[0].content.map((text, idx) => (
+                    <p
+                      key={idx}
+                      className={`text-[#483C32] text-base md:text-lg leading-relaxed ${
+                        idx < hiloWaveData.effects[0].content.length - 1 ? 'mb-4' : ''
+                      }`}
+                      dangerouslySetInnerHTML={{ __html: text }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -97,25 +106,21 @@ export default function HiloWavePageContent() {
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
                   <ImageWithFallback
                     src={hiloWaveData.chartImage}
-                    alt="힐로웨이브와 필러 비교"
+                    alt="필러와 힐로웨이브의 물성 비교"
                     className="w-full object-cover"
                   />
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-4">
-                  둘 다 히알루론산 기반으로 즉각적으로 볼륨을 개선한다는 점은 같습니다.
-                </p>
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-4">
-                  하지만, 힐로웨이브는 BDDE라는 가교제가 최소한으로 포함되어있어 전통적인 필러에
-                  비해{' '}
-                  <span className="text-white bg-[#3F342D] px-1">
-                    이물감이나 혈관 폐색 부작용을 일으킬 가능성이 적습니다.
-                  </span>
-                </p>
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
-                  다만, 시술 가능한 부위가 한정적이고, 유지기간이 다소 짧다는 단점이 있습니다.
-                </p>
+                {hiloWaveData.effects[1].content.map((text, idx) => (
+                  <p
+                    key={idx}
+                    className={`text-[#483C32] text-base md:text-lg leading-relaxed ${
+                      idx < hiloWaveData.effects[1].content.length - 1 ? 'mb-4' : ''
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
+                ))}
 
                 <div className="border rounded-2xl overflow-hidden shadow-sm mt-4 bg-white">
                   <Table className="w-full table-fixed">
@@ -180,20 +185,16 @@ export default function HiloWavePageContent() {
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
                   <ImageWithFallback
                     src={hiloWaveData.treatmentAreasImage}
-                    alt="힐로웨이브 시술 가능 부위"
+                    alt="앞볼, 옆볼, 팔자주름 등 힐로웨이브 시술 가능한 부위"
                     className="w-full object-cover"
                   />
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed">
-                  힐로웨이브는 물성이 묽기 때문에, 이마, 코, 입술 등 모양을 만들고 잡아줘야하는
-                  부위보다는,{' '}
-                  <span className="text-white bg-[#3F342D] px-1">
-                    넓게 꺼져있는 볼, 앞광대 (중안부), 팔자주름 볼륨
-                  </span>
-                  을 채우기에 좋습니다.
-                </p>
+                <p
+                  className="text-[#483C32] text-base md:text-lg leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: hiloWaveData.effects[2].content[0] }}
+                />
               </div>
             </div>
 
@@ -218,27 +219,16 @@ export default function HiloWavePageContent() {
                 <div className="mt-6 md:mt-8 rounded-2xl overflow-hidden shadow-sm">
                   <ImageWithFallback
                     src={hiloWaveData.productComparisonImage}
-                    alt="힐로웨이브와 타 제품 비교"
+                    alt="힐로웨이브와 스컬트라, 올리디아, 쥬베룩볼륨 비교"
                     className="w-full object-cover"
                   />
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
-                <p className="text-[#483C32] text-base md:text-lg leading-relaxed mb-6 md:mb-8">
-                  모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만
-                  힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에{' '}
-                  <span className="text-white bg-[#3F342D] px-1">
-                    시술 직후 즉각적으로 채워지고
-                  </span>
-                  , 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐
-                  합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가
-                  있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게
-                  일어났을 때, 결절이라는 부작용이 생길 수도 있죠.{' '}
-                  <span className="text-white bg-[#3F342D] px-1">
-                    힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술
-                  </span>
-                  입니다.
-                </p>
+                <p
+                  className="text-[#483C32] text-base md:text-lg leading-relaxed mb-6 md:mb-8"
+                  dangerouslySetInnerHTML={{ __html: hiloWaveData.effects[3].content[0] }}
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                   <div className="bg-[#e9e5e0] p-5 md:p-6 rounded-2xl border border-[#dcd8d4] flex flex-col justify-center">
                     <p className="font-bold text-[#483C32] text-base md:text-lg mb-2">힐로웨이브</p>

@@ -16,7 +16,7 @@ export const olidiaData = {
   // Hero Section
   hero: {
     image: olidiaHero,
-    alt: 'OLIDIA Background',
+    alt: '올리디아 제품 컨셉컷',
   },
 
   // Procedure Info Section
@@ -45,7 +45,8 @@ export const olidiaData = {
       pointNumber: '01',
       title: '안전성과 효과를 모두 잡은 <span class="highlight">구형 PLLA</span>',
       image: olidiaParticle,
-      imageAlt: '올리디아 구형 입자',
+      imageAlt: '올리디아와 쥬베룩볼륨, 스컬트라 입자 전자현미경 사진 비교',
+      imageSource: 'https://www.olidia.co.kr/',
       content: [
         '올리디아는 콜라겐 합성 효과를 극대화한 PLLA 이면서도, 구형 입자로 만들어져 결절 리스크를 낮췄습니다.',
         '안전성과 효과, 두 마리 토끼를 모두 잡은 올리디아.',
@@ -57,7 +58,7 @@ export const olidiaData = {
       pointNumber: '02',
       title: '볼륨 뿐만 아니라, <span class="highlight">피부 탄력도</span> 좋아진다.',
       image: collagenChart,
-      imageAlt: '올리디아 시술 후 피부층의 변화',
+      imageAlt: '올리디아 시술 전후 피부 모식도',
       imageCaption: '올리디아 시술 후 피부층의 변화',
       content: [
         '콜라겐은 단순히 꺼진 공간을 채워주는 것 뿐만 아니라, 피부 (진피층) 자체를 개선합니다. 피부 탄력이 개선되며 처짐을 예방해주고, 주름과 피부결도 좋아집니다.',
@@ -86,7 +87,7 @@ export const olidiaData = {
           description:
             '입자가 뭉치지 않도록 주입하는 것도 중요합니다. 오드의원 의료진은 풍부한 시술 경험을 바탕으로 개개인의 피부 두께와 조직 상태에 따라 <span class="text-white bg-[#3F342D] px-1">최적의 깊이에 정교하게 주입</span>합니다.',
           image: injectionTechnique,
-          imageAlt: '숙련된 주입 테크닉',
+          imageAlt: '캐뉼라 시술 중인 오드의원 김도훈 원장',
         },
       ],
     },
@@ -95,7 +96,7 @@ export const olidiaData = {
       pointNumber: '04',
       title: '올리디아 <span class="highlight">시술 가능한 부위</span>는 어디인가요?',
       image: treatmentAreas,
-      imageAlt: '올리디아 시술 가능 부위',
+      imageAlt: '볼꺼짐, 앞광대, 팔자주름 등 올리디아 시술 가능한 부위',
       content: [
         '올리디아는 콜라겐 합성 촉진제로, <span class="text-white bg-[#3F342D] px-1">넓게 꺼진 볼, 앞광대 (중안부), 팔자주름 볼륨</span>을 채우기에 좋습니다.',
       ],
@@ -106,7 +107,7 @@ export const olidiaData = {
   maintenance: {
     title: '올리디아 유지기간, 주기',
     content:
-      '올리디아의 유지기간은 <span class="text-[#a58d7d] font-bold">1년 반 ~ 2년</span>입니다.<br class="hidden md:block" />올리디아는 한 달 간격으로 3회 시술 받고나서, 1년 반 ~ 2년마다 1회씩 리터치 받는 것을 권장드립니다.',
+      '올리디아의 유지기간은 <span class="text-[#a58d7d] font-bold">1년 반 ~ 2년</span>입니다.<br />올리디아는 한 달 간격으로 3회 시술 받고나서, 1년 반 ~ 2년마다 1회씩 리터치 받는 것을 권장드립니다.',
   },
 
   // Pricing

@@ -18,7 +18,7 @@ export const juvelookVolumeData = {
   // Hero Section
   hero: {
     image: juvelookHero,
-    alt: 'JUVELOOK VOLUME Background',
+    alt: '쥬베룩볼륨 제품 컨셉컷',
   },
 
   // Procedure Info Section
@@ -47,7 +47,7 @@ export const juvelookVolumeData = {
       pointNumber: '01',
       title: '<span class="highlight">자가콜라겐 합성</span>을 통한 자연스러운 볼륨 생성',
       image: juvelookEffectChart,
-      imageAlt: 'PDLLA 시술 후 피하지방층 두께 변화',
+      imageAlt: '쥬베룩볼륨 주입 후 피하지방층의 두께 변화에 대한 논문 자료',
       imageCaption: 'PDLLA 시술 후, 피하지방층 두께의 변화',
       imageSource:
         'Poly-D,L-Lactic Acid Fillers Increase Subcutaneous Adipose Tissue Volume by Promoting Adipogenesis in Aged Animal Skin (2023, International Journal of Molecular Sciences)',
@@ -61,7 +61,7 @@ export const juvelookVolumeData = {
       pointNumber: '02',
       title: '볼륨 뿐만 아니라, <span class="highlight">피부 탄력</span>도 좋아진다.',
       image: juvelookCollagenChart,
-      imageAlt: '쥬베룩볼륨 시술 후 피부층의 변화',
+      imageAlt: '쥬베룩볼륨 시술 전후 피부 모식도',
       imageCaption: '쥬베룩볼륨 시술 후 피부층의 변화',
       content: [
         '콜라겐은 단순히 꺼진 공간을 채워주는 것 뿐만 아니라, 피부 (진피층) 자체를 개선합니다.',
@@ -79,7 +79,7 @@ export const juvelookVolumeData = {
           description:
             '입자가 뭉쳐있으면 콜라겐 과다 합성으로 인한 결절 리스크가 높아집니다. 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">볼텍스믹서로 30분 이상 수화</span>하여 결절 발생률을 최소화합니다.',
           image: vortexMixer,
-          imageAlt: '볼텍스 믹서 수화 과정',
+          imageAlt: '쥬베룩볼륨 수화를 위한 볼텍스 믹서',
         },
         {
           number: '(2)',
@@ -87,7 +87,7 @@ export const juvelookVolumeData = {
           description:
             '한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다. 따라서 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">한 병을 온전히 한 분에게 모두 사용</span>하고 남은 양은 폐기하고 있습니다.',
           image: oneBottleUsage,
-          imageAlt: '한 병 단위 사용',
+          imageAlt: '오드의원 쥬베룩볼륨 시술량',
         },
         {
           number: '(3)',
@@ -95,7 +95,7 @@ export const juvelookVolumeData = {
           description:
             '입자가 뭉치지 않도록 주입하는 것도 중요합니다. 오드의원 의료진은 풍부한 시술 경험을 바탕으로 개개인의 피부 두께와 조직 상태에 따라 <span class="text-white bg-[#3F342D] px-1">최적의 깊이에 정교하게 주입</span>합니다.',
           image: injectionTechnique,
-          imageAlt: '숙련된 주입 테크닉',
+          imageAlt: '캐뉼라 시술 중인 오드의원 김도훈 원장',
         },
       ],
     },
@@ -104,7 +104,7 @@ export const juvelookVolumeData = {
       pointNumber: '04',
       title: '쥬베룩볼륨 <span class="highlight">시술 가능한 부위</span>는 어디인가요?',
       image: treatmentAreas,
-      imageAlt: '쥬베룩 볼륨 시술 가능 부위',
+      imageAlt: '볼꺼짐, 앞광대, 팔자주름 등 쥬베룩볼륨 시술 가능한 부위',
       content: [
         '쥬베룩볼륨은 콜라겐 합성 촉진제로, <span class="text-white bg-[#3F342D] px-1">넓게 꺼진 볼, 앞광대 (중안부), 팔자주름 볼륨</span>을 채우기에 좋습니다.',
       ],

@@ -69,7 +69,7 @@ export default function SculptraPageContent() {
                 <div className="rounded-2xl overflow-hidden shadow-sm border border-[#e9e5e0]">
                   <ImageWithFallback
                     src={sculptraData.images.fdaApproval}
-                    alt="스컬트라 FDA 승인"
+                    alt={sculptraData.specialSections.pllaCollagen.fdaImageAlt}
                     className="w-full h-auto object-contain"
                   />
                 </div>

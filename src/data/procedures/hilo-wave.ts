@@ -3,6 +3,7 @@ import hiloWaveBnaBefore1 from '@/assets/procedures/hilowave/hilowave-bna-before
 import hiloWaveBnaAfter1 from '@/assets/procedures/hilowave/hilowave-bna-after1.png';
 import hiloWaveBnaBefore2 from '@/assets/procedures/hilowave/hilowave-bna-before2.png';
 import hiloWaveBnaAfter2 from '@/assets/procedures/hilowave/hilowave-bna-after2.png';
+import hiloWave3 from '@/assets/procedures/hilowave/hilowave3.png';
 import hiloWaveVsFillerChart from '@/assets/procedures/hilowave/hilowave-vs-filler-chart.png';
 import treatmentAreas from '@/assets/procedures/common/treatment-areas.png';
 import productComparisonChart from '@/assets/procedures/common/product-comparison-chart.png';
@@ -13,7 +14,7 @@ export const hiloWaveData = {
   // Hero Section
   hero: {
     image: hiloWaveHero,
-    alt: 'HILO WAVE Background',
+    alt: '힐로웨이브 제품 이미지 사진',
   },
 
   // Procedure Info Section
@@ -40,19 +41,21 @@ export const hiloWaveData = {
     {
       pointNumber: '01',
       title: '<span class="highlight">힐로웨이브</span>란,',
+      image: hiloWave3,
+      imageAlt: '힐로웨이브 제품 컨셉 이미지',
       content: [
         '힐로웨이브는 고분자 + 저분자 히알루론산 복합체로, 얼굴의 꺼진 볼륨을 자연스럽게 채우는 시술입니다.',
-        '부작용이 거의 없어서 안전한 시술을 원하시는 분들에게 추천드립니다.',
+        '부작용이 거의 없어서 <span class="text-white bg-[#3F342D] px-1">안전한 시술을 원하시는 분들</span>에게 추천드립니다.',
       ],
     },
     {
       pointNumber: '02',
       title: '<span class="highlight">힐로웨이브와 필러의 차이</span>는 무엇인가요?',
       image: hiloWaveVsFillerChart,
-      imageAlt: '힐로웨이브와 필러 비교',
+      imageAlt: '필러와 힐로웨이브의 물성 비교',
       content: [
         '둘 다 히알루론산 기반으로 즉각적으로 볼륨을 개선한다는 점은 같습니다.',
-        '하지만, 힐로웨이브는 BDDE라는 가교제가 최소한으로 포함되어있어 전통적인 필러에 비해 이물감이나 혈관 폐색 부작용을 일으킬 가능성이 적습니다.',
+        '하지만, 힐로웨이브는 BDDE라는 가교제가 최소한으로 포함되어있어 전통적인 필러에 비해 <span class="text-white bg-[#3F342D] px-1">이물감이나 혈관 폐색 부작용을 일으킬 가능성이 적습니다.</span>',
         '다만, 시술 가능한 부위가 한정적이고, 유지기간이 다소 짧다는 단점이 있습니다.',
       ],
       table: {
@@ -70,9 +73,9 @@ export const hiloWaveData = {
       pointNumber: '03',
       title: '힐로웨이브 <span class="highlight">시술 가능한 부위</span>는 어디인가요?',
       image: treatmentAreas,
-      imageAlt: '힐로웨이브 시술 가능 부위',
+      imageAlt: '앞볼, 옆볼, 팔자주름 등 힐로웨이브 시술 가능한 부위',
       content: [
-        '힐로웨이브는 물성이 묽기 때문에, 이마, 코, 입술 등 모양을 만들고 잡아줘야하는 부위보다는, <span class="highlight-dark">넓게 꺼져있는 볼, 앞광대 (중안부), 팔자주름 볼륨</span>을 채우기에 좋습니다.',
+        '힐로웨이브는 물성이 묽기 때문에, 이마, 코, 입술 등 모양을 만들고 잡아줘야하는 부위보다는, <span class="text-white bg-[#3F342D] px-1">넓게 꺼져있는 볼, 앞광대 (중안부), 팔자주름 볼륨</span>을 채우기에 좋습니다.',
       ],
     },
     {
@@ -80,9 +83,9 @@ export const hiloWaveData = {
       title:
         '힐로웨이브와 <span class="highlight">쥬베룩볼륨, 스컬트라, 올리디아는 어떻게 다른가요?</span>',
       image: productComparisonChart,
-      imageAlt: '힐로웨이브와 타 제품 비교',
+      imageAlt: '힐로웨이브와 스컬트라, 올리디아, 쥬베룩볼륨 비교',
       content: [
-        '모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만 힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에 <span class="highlight-dark">시술 직후 즉각적으로 채워지고</span>, 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐 합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가 있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게 일어났을 때, 결절이라는 부작용이 생길 수도 있죠. <span class="highlight-dark">힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술</span>입니다.',
+        '모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만 힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에 <span class="text-white bg-[#3F342D] px-1">시술 직후 즉각적으로 채워지고</span>, 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐 합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가 있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게 일어났을 때, 결절이라는 부작용이 생길 수도 있죠. <span class="text-white bg-[#3F342D] px-1">힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술</span>입니다.',
       ],
       comparison: {
         option1: {
@@ -134,7 +137,7 @@ export const hiloWaveData = {
 
   // FAQ
   faq: {
-    title: '자주 묻는 질문',
+    title: '힐로웨이브 자주 묻는 질문',
     items: [
       {
         q: '힐로웨이브 부위별 용량은 얼마나 필요한가요?',
@@ -193,4 +196,9 @@ export const hiloWaveData = {
   chartImage: hiloWaveVsFillerChart,
   treatmentAreasImage: treatmentAreas,
   productComparisonImage: productComparisonChart,
+  
+  // 힐로웨이브 전용 이미지들
+  images: {
+    hiloWave3,
+  },
 };

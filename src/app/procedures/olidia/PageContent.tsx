@@ -68,12 +68,26 @@ export default function OlidiaPageContent() {
                   ))}
                 </div>
 
-                <div className="rounded-2xl overflow-hidden shadow-sm border border-[#e9e5e0]">
+                <div className="rounded-2xl overflow-hidden mb-4 shadow-sm border border-[#e9e5e0]">
                   <ImageWithFallback
                     src={olidiaData.images.particle}
                     alt={olidiaData.specialSections.sphericalPLLA.imageAlt}
                     className="w-full h-auto object-contain"
                   />
+                </div>
+
+                <div className="text-center">
+                  <p className="text-[#8a7e75] text-xs md:text-sm leading-relaxed break-keep opacity-80">
+                    출처 :{' '}
+                    <a
+                      href={olidiaData.specialSections.sphericalPLLA.imageSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#a58d7d] hover:underline"
+                    >
+                      {olidiaData.specialSections.sphericalPLLA.imageSource}
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
