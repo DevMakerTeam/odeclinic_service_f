@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
@@ -12,18 +12,43 @@ import { olidiaData } from '@/data/procedures/olidia';
 import { radiesseData } from '@/data/procedures/radiesse';
 import { ultracolData } from '@/data/procedures/ultracol';
 import { undereyeFillerData } from '@/data/procedures/undereye-filler';
+import { ultherapyData } from '@/data/procedures/ultherapy';
 
 // Mock Data
-type Category = '볼륨' | '리프팅' | '타이트닝' | '스킨부스터' | '프라이빗 바디 센터' | '웨딩';
+type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
 
 const CATEGORIES: Category[] = [
-  '볼륨',
-  '리프팅',
-  '타이트닝',
-  '스킨부스터',
-  '프라이빗 바디 센터',
-  '웨딩',
+  'volume',
+  'lifting-tightening',
+  'anti-aging',
+  'skin-booster',
+  'body-program',
 ];
+
+// 카테고리 한글 레이블
+const CATEGORY_LABELS: Record<Category, string> = {
+  'volume': '볼륨',
+  'lifting-tightening': '리프팅 & 타이트닝',
+  'anti-aging': '향노화',
+  'skin-booster': '스킨부스터',
+  'body-program': '바디 프로그램',
+};
+
+// 카테고리와 URL 필터 매핑
+const CATEGORY_TO_FILTER: Record<Category, string | null> = {
+  'volume': null,
+  'lifting-tightening': 'lifting-tightening',
+  'anti-aging': 'anti-aging',
+  'skin-booster': 'skin-booster',
+  'body-program': 'body-program',
+};
+
+const FILTER_TO_CATEGORY: Record<string, Category> = {
+  'lifting-tightening': 'lifting-tightening',
+  'anti-aging': 'anti-aging',
+  'skin-booster': 'skin-booster',
+  'body-program': 'body-program',
+};
 
 interface Procedure {
   id: string;
@@ -37,7 +62,7 @@ interface Procedure {
 const PROCEDURES: Procedure[] = [
   {
     id: 'hilo-wave',
-    category: '볼륨',
+    category: 'volume',
     name: hiloWaveData.info.displayTitle,
     description: hiloWaveData.info.description,
     price: '1회 60만원',
@@ -45,7 +70,7 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'juvelook-volume',
-    category: '볼륨',
+    category: 'volume',
     name: juvelookVolumeData.info.displayTitle,
     description: juvelookVolumeData.info.description,
     price: '1병 49만원',
@@ -53,7 +78,7 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'sculptra',
-    category: '볼륨',
+    category: 'volume',
     name: sculptraData.info.displayTitle,
     description: sculptraData.info.description,
     price: '1병 69만원',
@@ -61,7 +86,7 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'olidia',
-    category: '볼륨',
+    category: 'volume',
     name: olidiaData.info.displayTitle,
     description: olidiaData.info.description,
     price: '1병 59만원',
@@ -69,7 +94,7 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'radiesse',
-    category: '볼륨',
+    category: 'volume',
     name: radiesseData.info.displayTitle,
     description: radiesseData.info.description,
     price: '1병 85만원',
@@ -77,7 +102,7 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'ultracol',
-    category: '볼륨',
+    category: 'volume',
     name: ultracolData.info.displayTitle,
     description: ultracolData.info.description,
     price: '1병 49만원',
@@ -85,17 +110,53 @@ const PROCEDURES: Procedure[] = [
   },
   {
     id: 'undereye-filler',
-    category: '볼륨',
+    category: 'volume',
     name: undereyeFillerData.info.displayTitle,
     description: undereyeFillerData.info.description,
     price: '0.5cc 45만원',
     image: undereyeFillerData.hero.image,
   },
+  {
+    id: 'ultherapy',
+    category: 'lifting-tightening',
+    name: ultherapyData.info.displayTitle,
+    description: ultherapyData.info.description,
+    price: '100샷 35만원',
+    image: ultherapyData.hero.image,
+  },
 ];
 
 export default function ProceduresPage() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>('볼륨');
+  const searchParams = useSearchParams();
   const router = useRouter();
+  
+  // URL에서 filter 파라미터 읽기
+  const filterParam = searchParams.get('filter');
+  const initialCategory: Category = filterParam && FILTER_TO_CATEGORY[filterParam] 
+    ? FILTER_TO_CATEGORY[filterParam] 
+    : 'volume';
+  
+  const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
+
+  // URL 파라미터가 변경되면 selectedCategory 업데이트
+  useEffect(() => {
+    const filterParam = searchParams.get('filter');
+    const category: Category = filterParam && FILTER_TO_CATEGORY[filterParam]
+      ? FILTER_TO_CATEGORY[filterParam]
+      : 'volume';
+    setSelectedCategory(category);
+  }, [searchParams]);
+
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+    const filter = CATEGORY_TO_FILTER[category];
+    
+    if (filter) {
+      router.push(`/procedures?filter=${filter}`);
+    } else {
+      router.push('/procedures');
+    }
+  };
 
   const filteredProcedures = PROCEDURES.filter((p) => p.category === selectedCategory);
 
@@ -108,14 +169,14 @@ export default function ProceduresPage() {
         {CATEGORIES.map((category) => (
           <button
             key={category}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => handleCategoryChange(category)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               selectedCategory === category
                 ? 'bg-black text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
-            {category}
+            {CATEGORY_LABELS[category]}
           </button>
         ))}
       </div>
