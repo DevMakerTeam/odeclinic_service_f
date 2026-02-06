@@ -5,10 +5,15 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { ImageWithFallback } from '@/components/common/ImageWithFallback';
+import type { StaticImageData } from 'next/image';
 
 interface FAQ {
   q: string;
   a: string;
+  image?: StaticImageData;
+  imageAlt?: string;
+  afterImageText?: string;
 }
 
 interface FAQSectionProps {
@@ -37,8 +42,22 @@ export function FAQSection({ title, faqs }: FAQSectionProps) {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-[#8a7e75] text-base md:text-lg">
-                <div className="pl-6 md:pl-8 pb-8 md:pb-10 leading-relaxed">
-                  {faq.a}
+                <div className="pl-6 md:pl-8 pb-8 md:pb-10 leading-relaxed space-y-4">
+                  <div className="whitespace-pre-line">{faq.a}</div>
+                  {faq.image && (
+                    <>
+                      <div className="rounded-2xl overflow-hidden shadow-sm border border-[#e9e5e0] mt-4">
+                        <ImageWithFallback
+                          src={faq.image}
+                          alt={faq.imageAlt || ''}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                      {faq.afterImageText && (
+                        <div className="whitespace-pre-line mt-4">{faq.afterImageText}</div>
+                      )}
+                    </>
+                  )}
                 </div>
               </AccordionContent>
             </AccordionItem>

@@ -13,6 +13,7 @@ import { radiesseData } from '@/data/procedures/radiesse';
 import { ultracolData } from '@/data/procedures/ultracol';
 import { undereyeFillerData } from '@/data/procedures/undereye-filler';
 import { ultherapyData } from '@/data/procedures/ultherapy';
+import { thermageData } from '@/data/procedures/thermage';
 
 // Mock Data
 type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
@@ -123,6 +124,14 @@ const PROCEDURES: Procedure[] = [
     description: ultherapyData.info.description,
     price: '100샷 35만원',
     image: ultherapyData.hero.image,
+  },
+  {
+    id: 'thermage',
+    category: 'lifting-tightening',
+    name: thermageData.info.displayTitle,
+    description: thermageData.info.description,
+    price: '600샷 230만원',
+    image: thermageData.hero.image,
   },
 ];
 
