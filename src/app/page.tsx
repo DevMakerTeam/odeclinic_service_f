@@ -1,86 +1,130 @@
 'use client';
 
+import React from 'react';
 import Slider from 'react-slick';
-import { ChevronRight, MapPin, Clock, Phone } from 'lucide-react';
-import Image from 'next/image';
-
-// Import slick carousel styles
+import { motion } from 'motion/react';
 import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { ImageWithFallback } from '@/components/common/ImageWithFallback';
 
-// --- Mock Data ---
-
-const MAIN_SLIDES = [
+const HERO_SLIDES = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1764727291644-5dcb0b1a0375?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsdXh1cnklMjBtaW5pbWFsJTIwY2xpbmljJTIwcmVjZXB0aW9uJTIwd2hpdGV8ZW58MXx8fHwxNzY5NDk4ODMwfDA&ixlib=rb-4.1.0&q=80&w=1920',
+    image: 'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMG1pbmltYWwlMjB3aGl0ZXxlbnwxfHx8fDE3NzE1NzkyMTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Authentic Aesthetic Art',
-    subtitle: '자연스러운 아름다움을 위한 오드만의 프리미엄 솔루션',
+    subtitle: '가장 나다운 아름다움을 찾는 시간, 오드클리닉',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGZhY2lhbCUyMHNraW4lMjBjYXJlJTIwdHJlYXRtZW50JTIwc3BhfGVufDF8fHx8MTc2OTQ5ODgyNHww&ixlib=rb-4.1.0&q=80&w=1920',
+    image: 'https://images.unsplash.com/photo-1768836180171-24c727a594b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY2xpbmljJTIwcmVjZXB0aW9uJTIwd2hpdGUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzE1NzkyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Private & Premium Care',
-    subtitle: '당신만을 위한 프라이빗한 공간에서 시작되는 변화',
+    subtitle: '당신만을 위해 준비된 프라이빗한 공간에서 시작되는 변화',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1679581356089-e65ea18c7f61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwYmVhdXR5JTIwY29uc3VsdGF0aW9uJTIwbmF0dXJhbHxlbnwxfHx8fDE3Njk0OTk5MTl8MA&ixlib=rb-4.1.0&q=80&w=1920',
-    title: 'Personalized Consulting',
-    subtitle: '개인의 고유한 매력을 찾아내는 1:1 맞춤형 컨설팅',
+    image: 'https://images.unsplash.com/flagged/photo-1577047795497-ba38bab31113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMGJlYXV0eSUyMHdvbWFuJTIwcHJvZmlsZSUyMGVsZWdhbnR8ZW58MXx8fHwxNzcxNTc5MjIxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    title: 'Essential Skin Solution',
+    subtitle: '기본에 충실한 진료로 피부 본연의 건강함을 깨웁니다',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1758632031161-b6d7e913c2b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjB0cmVhdG1lbnQlMjByb29tJTIwcmVsYXhpbmd8ZW58MXx8fHwxNzY5NDk5OTE5fDA&ixlib=rb-4.1.0&q=80&w=1920',
-    title: 'Relaxing Atmosphere',
-    subtitle: '도심 속 휴식, 편안하고 아늑한 치유의 공간',
-  },
-  {
-    id: 5,
-    image: 'https://images.unsplash.com/photo-1674049406179-d7bf2c263e71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkZXJtYXRvbG9neSUyMGxhc2VyJTIwcHJvY2VkdXJlJTIwY2xvc2UlMjB1cHxlbnwxfHx8fDE3Njk0OTk5MTl8MA&ixlib=rb-4.1.0&q=80&w=1920',
-    title: 'Advanced Technology',
-    subtitle: '최신 프리미엄 장비로 완성하는 안전하고 효과적인 시술',
-  },
-  {
-    id: 6,
-    image: 'https://images.unsplash.com/photo-1725034246182-0bb08e80d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGdsb3dpbmclMjBza2luJTIwcG9ydHJhaXQlMjBuYXR1cmFsJTIwbGlnaHR8ZW58MXx8fHwxNzY5NDk5OTE5fDA&ixlib=rb-4.1.0&q=80&w=1920',
-    title: 'Radiant Skin & Beauty',
-    subtitle: '건강하게 빛나는 피부, 당신의 아름다움을 깨우다',
-  },
-  {
-    id: 7,
-    image: 'https://images.unsplash.com/photo-1767966769495-dbb5e14cab5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtZWRpY2FsJTIwZXF1aXBtZW50JTIwdGVjaG5vbG9neSUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3Njk0OTk5MjB8MA&ixlib=rb-4.1.0&q=80&w=1920',
-    title: 'Professional Medical Team',
-    subtitle: '풍부한 경험과 노하우를 갖춘 숙련된 의료진의 정밀한 시술',
+    image: 'https://images.unsplash.com/photo-1679496125396-8d01c968d071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMGNsaW5pYyUyMHByb2NlZHVyZSUyMGxhc2VyJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTIyMXww&ixlib=rb-4.1.0&q=80&w=1080',
+    title: 'Advanced Medical Beauty',
+    subtitle: '숙련된 의료진과 프리미엄 장비로 완성하는 정교한 시술',
   },
 ];
-
-const COLUMN_POSTS = [
-  {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1666980347648-23bb1e49c1e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
-    title: '리프팅 레이저, 나에게 맞는 시술은?',
-    desc: '울쎄라, 써마지, 슈링크 등 다양한 리프팅 레이저의 차이점과 효과',
-    date: '2023.10.15'
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
-    title: '환절기 피부 관리의 핵심, 스킨부스터',
-    desc: '건조한 가을철, 피부 장벽을 강화하고 속건조를 해결하는 방법',
-    date: '2023.10.22'
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
-    title: '자연스러운 볼륨감, 필러 시술 가이드',
-    desc: '부위별 필러 선택 기준과 시술 전후 주의사항',
-    date: '2023.11.01'
-  }
-];
-
-// --- Components ---
 
 function HeroSlider() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1200,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    fade: true,
+    appendDots: (dots: React.ReactNode) => (
+      <div style={{ position: 'absolute', bottom: '30px', width: '100%' }}>
+        <ul className="m-0 flex justify-center gap-1"> {dots} </ul>
+      </div>
+    ),
+    customPaging: () => (
+      <div className="w-2 h-2 bg-white/30 rounded-full transition-all duration-300 hover:bg-white/60 [.slick-active_&]:w-6 [.slick-active_&]:bg-white" />
+    ),
+  };
+
+  return (
+    <section className="relative w-full aspect-square overflow-hidden [&_.slick-slider]:mb-0">
+      <Slider {...settings} className="h-full">
+        {HERO_SLIDES.map((slide) => (
+          <div key={slide.id} className="relative w-full aspect-square outline-none">
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-110"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            />
+          </div>
+        ))}
+      </Slider>
+    </section>
+  );
+}
+
+const BLOG_POSTS = [
+  { id: 1, image: 'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMHdoaXRlJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 2, image: 'https://images.unsplash.com/photo-1588776814546-daab30f310ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMHByb2NlZHVyZSUyMGxhc2VyJTIwdHJlYXRtZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 3, image: 'https://images.unsplash.com/photo-1767360963892-3353defd6584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMHByb2R1Y3RzJTIwbHV4dXJ5JTIwbWluaW1hbHxlbnwxfHx8fDE3NzE1Nzk1MTZ8MA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 4, image: 'https://images.unsplash.com/photo-1725034246182-0bb08e80d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGdsb3dpbmclMjBza2luJTIwcG9ydHJhaXQlMjBuYXR1cmFsfGVufDF8fHx8MTc3MTUyMTUwNXww&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 5, image: 'https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXNrJTIwdHJlYXRtZW50JTIwcHJvZmVzc2lvbmFsJTIwc3BhfGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 6, image: 'https://images.unsplash.com/photo-1595871151608-bc7abd1caca3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjB0aGVyYXB5JTIwbWFzc2FnZSUyMHNwYSUyMHJvb218ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 7, image: 'https://images.unsplash.com/photo-1747098393451-6b985f62a2c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwY29zbWV0aWMlMjBpbmdyZWRpZW50cyUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 8, image: 'https://images.unsplash.com/photo-1752842350772-2921657e50d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RveCUyMGluamVjdGlvbiUyMHByb2NlZHVyZSUyMG1lZGljYWwlMjBjbGluaWN8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 9, image: 'https://images.unsplash.com/photo-1765766600805-e75c44124d2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBiYXRocm9vbSUyMGludGVyaW9yJTIwd2hpdGV8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 10, image: 'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeWRyYWZhY2lhbCUyMHRyZWF0bWVudCUyMHNraW4lMjBjYXJlJTIwbWFjaGluZXxlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 11, image: 'https://images.unsplash.com/photo-1659353888477-6e6aab941b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkb2N0b3IlMjBjb25zdWx0YXRpb24lMjBwYXRpZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 12, image: 'https://images.unsplash.com/photo-1642844613096-7b743b7d9915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+];
+
+function BlogThumbnailGrid() {
+  return (
+    <section className="w-full pt-0 pb-20 px-1 bg-white">
+      <div className="text-center py-16 px-4">
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2">ODE Column</p>
+        <h1 className="text-3xl text-black font-bold tracking-tight">
+          <span className="text-[#483C32]">오드의원, </span>
+          <span>함께 살펴보세요</span>
+        </h1>
+      </div>
+      <div className="grid grid-cols-3 gap-1.5">
+        {BLOG_POSTS.map((post) => (
+          <motion.div
+            key={post.id}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="aspect-square overflow-hidden bg-gray-100 rounded-lg"
+          >
+            <img
+              src={post.image}
+              alt={`Blog Thumbnail ${post.id}`}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
+            />
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const SOLUTION_SLIDES = [
+  { id: 1, image: 'https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
+  { id: 2, image: 'https://images.unsplash.com/photo-1657470179441-c69861f0f748?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
+  { id: 3, image: 'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
+  { id: 4, image: 'https://images.unsplash.com/photo-1749997087675-1c138e19b44b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
+];
+
+function PartSolutionSlider() {
   const settings = {
     dots: false,
     infinite: true,
@@ -88,243 +132,270 @@ function HeroSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     arrows: false,
+    fade: true,
   };
 
   return (
-    <div className="w-full relative overflow-hidden group">
-      <Slider {...settings}>
-        {MAIN_SLIDES.map((slide) => (
-          <div key={slide.id} className="relative w-full h-[600px] outline-none">
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
-            <div className="absolute inset-0 bg-black/30" />
-            {/* 텍스트 애니메이션 제거 - 이미지 자체에 텍스트 포함 예정 */}
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
-}
-
-function MedicalStaffBanner() {
-  return (
-    <section className="w-full">
-      <Image 
-        src="https://images.unsplash.com/photo-1659353888477-6e6aab941b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1920" 
-        alt="Medical Staff Banner" 
-        width={1920}
-        height={500}
-        className="w-full h-[400px] md:h-[500px] object-cover block -mt-2"
-      />
+    <section className="w-full pb-20 bg-white">
+      <div className="text-center py-16 px-4">
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">Part Solution</p>
+        <h1 className="text-3xl text-black font-bold tracking-tight">
+          <span className="text-[#483C32]">오드의원, </span>
+          <span>부위별 솔루션</span>
+        </h1>
+      </div>
+      <div className="relative w-full aspect-[3/2] overflow-hidden">
+        <Slider {...settings} className="h-full">
+          {SOLUTION_SLIDES.map((slide) => (
+            <div key={slide.id} className="relative w-full aspect-[3/2] outline-none">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </section>
   );
 }
 
-function OdeColumnGrid() {
+const PHILOSOPHY_ITEMS = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    title: '의료진 상담',
+    description: '시술에 대해서 잘 모르시더라도 집도의와의 상담을 통해, 최적의 시술 계획을 세울 수 있습니다.',
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1754817408912-49aa34c270c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    title: '다양한 장비 보유',
+    description: '울쎄라, 써마지, 엠페이스, 세르프, 덴서티, 온다, 슈링크, 미라젯 등 프리미엄 장비에 계속해서 투자하여, 내 상태에 맞는 최적의 옵션을 선택하실 수 있도록 도와드립니다.',
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    title: '시술 전후 사진 비교 상담',
+    description: '효과가 서서히 나타나는 피부과 시술의 특성상 변화를 체감하기 어렵기 때문에 2D, 3D 피부진단기 사진을 촬영하여 시술 전후 나타나는 변화를 눈으로 확인하실 수 있도록 비교해드리고 있습니다.',
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1618384874910-9f823a21babb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    title: '정품정량 사용',
+    description: '오드의원은 환자와의 신뢰를 최우선으로 생각하며, 항상 정품, 정량만을 사용합니다.',
+  },
+  {
+    id: 5,
+    image: 'https://images.unsplash.com/photo-1660795774538-55c89a99723e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    title: '풍부한 임상 케이스, 학술활동',
+    description: '모든 의료진이 울쎄라, 써마지 등 리프팅 시술 뿐만 아니라, 필러와 같은 주사시술까지 풍부한 임상 케이스를 보유하고 있습니다.\n\n또 학회에서의 강연, 정기적인 내부 세미나를 통해 시술에 대해 끊임없이 연구하고 배웁니다.',
+  },
+];
+
+const PROMISES = [
+  '01. 일률적 치료가 아닌 개개인에 맞는 맞춤형 치료를 하겠습니다.',
+  '02. 환자분의 조그만 소리에도 항상 귀 기울이겠습니다.',
+  '03. 환자 한 분, 한 분에게 더욱 나은 진료, 더욱 발전한 의료서비스를 제공하겠습니다.',
+  '04. 시술 전과 시술 후의 태도가 달라지지 않도록 노력하겠습니다.',
+];
+
+const MEDICAL_SYSTEM = [
+  { id: 1, step: 'step1. 내원', image: 'https://images.unsplash.com/photo-1758448656987-cfae6bf225e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 2, step: 'step2. 1:1 원장 상담 및 시술 디자인', image: 'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 3, step: 'step3. 재 상담', image: 'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 4, step: 'step4. 프라이빗 1인실 시술', image: 'https://images.unsplash.com/photo-1629641320554-c8e8cfed610f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 5, step: 'step5. 맞춤관리', image: 'https://images.unsplash.com/photo-1728949202468-c37fdbd76856?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  { id: 6, step: 'step6. 귀가', image: 'https://images.unsplash.com/photo-1595324090213-bb34ed302604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+];
+
+const HIGHLIGHT_PARTS = [
+  '맞춤형 치료',
+  '항상 귀 기울이겠습니다.',
+  '더욱 나은 진료, 더욱 발전한 의료서비스를 제공하겠습니다.',
+  '태도가 달라지지 않도록 노력하겠습니다.',
+];
+
+function PhilosophySection() {
   return (
-    <section className="w-full py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h3 className="text-2xl font-serif text-[#483C32] mb-3">ODE Column</h3>
-          <p className="text-[#8a7e75] text-sm">오드클리닉의 새로운 소식과 유익한 정보를 만나보세요</p>
+    <section className="w-full bg-white pb-24">
+      {/* 진료철학 */}
+      <div className="pt-0 pb-20 px-6">
+        <div className="text-center py-10 px-4">
+          <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">ODE Philosophy</p>
+          <h1 className="text-3xl text-black font-bold tracking-tight">
+            <span className="text-[#483C32]">오드의원, </span>
+            <span>진료철학</span>
+          </h1>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
-          {COLUMN_POSTS.map((post) => (
-            <div key={post.id} className="group cursor-pointer">
-              <div className="aspect-[4/3] overflow-hidden bg-gray-100 mb-5 relative">
-                <Image 
-                  src={post.image} 
-                  alt={post.title}
-                  width={600}
-                  height={450}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+
+        <div className="space-y-4">
+          {PHILOSOPHY_ITEMS.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative w-full aspect-video overflow-hidden rounded-xl bg-gray-50 group"
+            >
+              <ImageWithFallback
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                <p className="text-[14px] text-white/90 leading-relaxed whitespace-pre-wrap">
+                  {item.description}
+                </p>
               </div>
-              <div className="flex items-center gap-3 mb-2">
-                 <span className="text-[10px] font-bold text-[#483C32] uppercase tracking-wider border border-[#483C32]/20 px-2 py-0.5 rounded-full">Skin Care</span>
-                 <span className="text-[11px] text-[#8a7e75]">{post.date}</span>
-              </div>
-              <h4 className="text-lg font-bold text-[#483C32] mb-2 group-hover:text-[#483C32]/70 transition-colors line-clamp-1">
-                {post.title}
-              </h4>
-              <p className="text-[#8a7e75] text-sm leading-relaxed line-clamp-2">
-                {post.desc}
-              </p>
-            </div>
+            </motion.div>
           ))}
         </div>
-        
-        <div className="flex justify-center mt-12">
-             <button className="flex items-center gap-1 text-xs font-bold text-[#483C32] hover:text-[#483C32]/70 transition-colors uppercase tracking-widest border-b border-[#483C32] pb-1">
-                View All Posts <ChevronRight className="w-3 h-3" />
-             </button>
+      </div>
+
+      {/* 4가지 약속 */}
+      <div className="py-24 bg-gray-50 px-8">
+        <h2 className="text-xl text-[#483C32] font-bold mb-12 text-center">오드의원은 4가지의 약속을 드립니다.</h2>
+        <div className="space-y-6 max-w-md mx-auto">
+          {PROMISES.map((promise, index) => {
+            const cleanPromise = promise.replace(/^\d{2}\.\s*/, '');
+            const targetText = HIGHLIGHT_PARTS[index];
+            const [before, after] = cleanPromise.split(targetText);
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-5 rounded-lg shadow-sm border border-gray-100"
+              >
+                <p className="text-[#483C32]/90 text-[15px] leading-snug">
+                  {before}
+                  <span className="text-[#483C32] font-bold">{targetText}</span>
+                  {after}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 특별한 의료시스템 */}
+      <div className="py-24 px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl font-bold mb-4">
+            오드의원의 <span className="text-[#483C32]">특별한 의료시스템</span>
+          </h2>
+          <p className="text-[14px] text-[#483C32]/70 leading-relaxed max-w-xs mx-auto">
+            시술 후 개인의 피부타입을 고려하지 않고 정해진 절차대로 관리해주는 기존 병원들과 달리,
+            오드의원은 개인의 피부상태에 알맞은 맞춤형 관리를 시행합니다.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-x-4 gap-y-12">
+          {MEDICAL_SYSTEM.map((step) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-full aspect-square rounded-lg overflow-hidden mb-3 bg-gray-100">
+                <ImageWithFallback
+                  src={step.image}
+                  alt={step.step}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-center gap-1.5 min-h-[3.5rem]">
+                <span className="text-[12px] font-bold text-[#483C32] uppercase">{step.step.split('. ')[0]}</span>
+                <span className="text-[14px] font-medium text-black text-center leading-tight px-1">
+                  {step.step.split('. ')[1]}
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function SolutionBanner() {
+function LocationSection() {
   return (
-    <section className="w-full relative h-[350px] md:h-[450px] flex items-center bg-[#F5F3F0]">
-        <div className="w-1/2 h-full relative hidden md:block">
-            <Image 
-                src="https://images.unsplash.com/photo-1660940637862-e4f9740ebaea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1920" 
-                alt="Body Solution"
-                width={1920}
-                height={450}
-                className="w-full h-full object-cover"
-            />
-             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#F5F3F0]" />
-        </div>
-        <div className="w-full md:w-1/2 px-6 md:pl-12 py-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-            <span className="text-xs font-bold text-[#483C32] tracking-[0.2em] mb-4 uppercase">Special Solution</span>
-            <h3 className="text-3xl md:text-4xl font-serif text-[#483C32] mb-6 leading-tight">
-                Body & Face<br />
-                Total Solution
-            </h3>
-            <p className="text-[#8a7e75] mb-8 max-w-md leading-relaxed text-sm md:text-base">
-                얼굴부터 바디까지, 당신의 고민을 해결해 줄<br className="md:hidden" /> 오드만의 맞춤형 솔루션을 제안합니다.
+    <section className="w-full pt-24 pb-20 bg-white overflow-hidden">
+      <div className="text-center mb-16 px-4">
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">ODE Location</p>
+        <h1 className="text-3xl text-black font-bold tracking-tight">
+          <span className="text-[#483C32]">가장 특별한 곳, </span>
+          <span>오드의원</span>
+        </h1>
+      </div>
+      <div className="w-full h-[400px] bg-gray-100 mb-12">
+        <ImageWithFallback
+          src="https://images.unsplash.com/photo-1569336415962-a4bd9f6dfc0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW91bCUyMG1hcCUyMG1vZGVybiUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1OTI2MjV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Location Map"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <div className="w-full px-5 space-y-8">
+        <div className="space-y-4">
+          <div className="space-y-1.5">
+            <h3 className="text-[18px] font-bold text-[#483C32] tracking-tight">병원 오시는길</h3>
+            <p className="text-[#483C32] text-[15px] font-medium leading-relaxed">
+              주소 : 서울특별시 강남구 강남대로 340, 8층(역삼동, 경원빌딩)
             </p>
-            <div className="flex gap-4">
-                 <button className="px-6 py-3 bg-[#483C32] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#3a3128] transition-colors shadow-lg shadow-[#483C32]/20">
-                    Face Solution
-                </button>
-                <button className="px-6 py-3 bg-white border border-[#483C32]/20 text-[#483C32] text-xs font-bold uppercase tracking-widest hover:bg-[#483C32]/5 transition-colors">
-                    Body Solution
-                </button>
-            </div>
+          </div>
+          <div>
+            <p className="text-[#483C32] text-[15px] font-bold tracking-tight">TEL : 02-569-0222</p>
+          </div>
         </div>
+
+        <div className="pt-8 border-t border-[#483C32]/10 pb-10">
+          <h3 className="text-[18px] font-bold text-[#483C32] tracking-tight mb-4">진료시간 안내</h3>
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2.5">
+              <span className="text-[#483C32]/60 text-[15px] font-medium">월 - 금</span>
+              <span className="text-[#483C32] text-[15px] font-bold">11:30 - 20:30</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <span className="text-[#483C32]/60 text-[15px] font-medium">토요일</span>
+              <span className="text-[#483C32] text-[15px] font-bold">10:00 - 16:00</span>
+            </div>
+            <div className="mt-3">
+              <p className="text-[12px] text-red-500 leading-relaxed font-medium">
+                * 점심시간 없이 진료하며,<br />
+                공휴일과 일요일은 휴진입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function PhilosophySection() {
-    return (
-        <section className="w-full py-24 bg-white">
-            <div className="max-w-4xl mx-auto px-6 text-center">
-                 <div className="w-16 h-16 mx-auto mb-8 text-[#483C32]">
-                     <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_10s_linear_infinite]">
-                        <path id="curve" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                        <text className="text-[10px] uppercase font-bold tracking-[0.3em] fill-current">
-                            <textPath href="#curve">
-                                Authentic Aesthetic Art • ODE Clinic •
-                            </textPath>
-                        </text>
-                     </svg>
-                 </div>
-                 <h3 className="text-2xl md:text-3xl font-serif text-[#483C32] mb-8 leading-normal">
-                    "가장 나다운 아름다움이<br />
-                    가장 완벽한 아름다움입니다."
-                 </h3>
-                 <div className="space-y-6 text-[#8a7e75] text-sm md:text-base font-light leading-loose">
-                    <p>
-                        오드클리닉은 획일화된 아름다움이 아닌,<br />
-                        개인이 가진 고유의 매력을 찾아내어 더욱 빛나게 만듭니다.
-                    </p>
-                    <p>
-                        과하지 않은 자연스러움, 기본에 충실한 진료,<br />
-                        그리고 당신만을 위한 프라이빗한 공간.
-                    </p>
-                    <p>
-                        시간이 흘러도 변치 않는 가치, 오드(ODE)가 추구하는 미학입니다.
-                    </p>
-                 </div>
-                 <div className="mt-12 w-12 h-[1px] bg-[#483C32]/30 mx-auto" />
-            </div>
-        </section>
-    );
-}
-
-function LocationSection() {
-    return (
-        <section className="w-full bg-[#1e1e1e] text-white py-20">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col lg:flex-row gap-12">
-                    {/* Map Area */}
-                    <div className="w-full lg:w-3/5 h-[400px] bg-[#2a2a2a] relative overflow-hidden group">
-                         <Image 
-                            src="https://images.unsplash.com/photo-1660602738577-7277a9354341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1920" 
-                            alt="Map Location"
-                            width={1920}
-                            height={400}
-                            className="w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity duration-500"
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                             <div className="bg-[#483C32] p-4 rounded-full shadow-2xl animate-bounce">
-                                <MapPin className="w-6 h-6 text-white" />
-                             </div>
-                        </div>
-                         <div className="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 text-[10px] text-white/80 rounded">
-                            강남대로 340
-                        </div>
-                    </div>
-                    
-                    {/* Info Area */}
-                    <div className="w-full lg:w-2/5 flex flex-col justify-center space-y-10">
-                        <div>
-                            <h3 className="text-xl font-serif mb-6 border-b border-white/10 pb-4 inline-block">오시는 길</h3>
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-4">
-                                    <MapPin className="w-5 h-5 text-white/60 mt-0.5 shrink-0" />
-                                    <div>
-                                        <p className="font-bold mb-1">주소</p>
-                                        <p className="text-white/70 text-sm font-light leading-relaxed">
-                                            서울특별시 강남구 강남대로 340, 8층<br />
-                                            (역삼동, 경원빌딩)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <Phone className="w-5 h-5 text-white/60 mt-0.5 shrink-0" />
-                                    <div>
-                                        <p className="font-bold mb-1">TEL</p>
-                                        <p className="text-white/70 text-sm font-light">02-569-0222</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                             <h3 className="text-xl font-serif mb-6 border-b border-white/10 pb-4 inline-block">진료시간 안내</h3>
-                             <div className="flex items-start gap-4">
-                                <Clock className="w-5 h-5 text-white/60 mt-0.5 shrink-0" />
-                                <div className="space-y-2">
-                                    <div className="flex justify-between w-full min-w-[200px] text-sm">
-                                        <span className="text-white/90">월 - 금</span>
-                                        <span className="text-white/70 font-light">AM 11:30 ~ PM 08:30</span>
-                                    </div>
-                                    <div className="flex justify-between w-full min-w-[200px] text-sm">
-                                        <span className="text-white/90">토요일</span>
-                                        <span className="text-white/70 font-light">AM 10:00 ~ PM 04:00</span>
-                                    </div>
-                                    <p className="text-xs text-[#8a7e75] mt-3 pt-3 border-t border-white/5">
-                                        * 점심시간 없이 진료하며, 공휴일과 일요일은 휴진입니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-}
-
 export default function HomePage() {
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-full bg-white">
       <HeroSlider />
-      <MedicalStaffBanner />
-      <OdeColumnGrid />
-      <SolutionBanner />
-      <PhilosophySection />
+      <div className="[&>section]:pb-0">
+        <BlogThumbnailGrid />
+      </div>
+      <div className="[&>section]:pb-0">
+        <PartSolutionSlider />
+      </div>
+      <div className="[&>section]:pb-0 [&>section>div:last-child]:pb-0">
+        <PhilosophySection />
+      </div>
       <LocationSection />
     </div>
   );
