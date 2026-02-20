@@ -14,6 +14,7 @@ import { ultracolData } from '@/data/procedures/ultracol';
 import { undereyeFillerData } from '@/data/procedures/undereye-filler';
 import { ultherapyData } from '@/data/procedures/ultherapy';
 import { thermageData } from '@/data/procedures/thermage';
+import { xerfData } from '@/data/procedures/xerf';
 
 // Mock Data
 type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
@@ -132,6 +133,14 @@ const PROCEDURES: Procedure[] = [
     description: thermageData.info.description,
     price: '600샷 230만원',
     image: thermageData.hero.image,
+  },
+  {
+    id: 'xerf',
+    category: 'lifting-tightening',
+    name: xerfData.info.displayTitle,
+    description: xerfData.info.description,
+    price: '600샷 180만원',
+    image: xerfData.hero.image,
   },
 ];
 
