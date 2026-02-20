@@ -15,6 +15,7 @@ import { undereyeFillerData } from '@/data/procedures/undereye-filler';
 import { ultherapyData } from '@/data/procedures/ultherapy';
 import { thermageData } from '@/data/procedures/thermage';
 import { xerfData } from '@/data/procedures/xerf';
+import { densityAlphaData } from '@/data/procedures/density-alpha';
 
 // Mock Data
 type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
@@ -141,6 +142,14 @@ const PROCEDURES: Procedure[] = [
     description: xerfData.info.description,
     price: '600샷 180만원',
     image: xerfData.hero.image,
+  },
+  {
+    id: 'density-alpha',
+    category: 'lifting-tightening',
+    name: densityAlphaData.info.displayTitle,
+    description: densityAlphaData.info.description,
+    price: '알파팁 600샷 180만원',
+    image: densityAlphaData.hero.image,
   },
 ];
 
