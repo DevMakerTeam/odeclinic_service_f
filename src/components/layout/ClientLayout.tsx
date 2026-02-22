@@ -180,7 +180,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </nav>
         </header>
 
-        <div className="flex-1 overflow-y-auto hide-scrollbar">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar">
           {children}
           <Footer />
         </div>

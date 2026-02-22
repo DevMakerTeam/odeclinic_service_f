@@ -13,8 +13,18 @@
 }
 
 /* Base font styles */
+html,
 body {
   font-family: "Pretendard", "Inter", sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent slick slider from causing horizontal overflow */
+.slick-slider,
+.slick-list,
+.slick-track {
+  overflow: hidden !important;
 }
 
 /* Desktop background - only on large screens */

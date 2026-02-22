@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body className="font-sans antialiased">
-        <div className="w-full min-h-screen font-sans antialiased text-[#483C32] bg-[#f4f0ec] lg:h-screen lg:overflow-hidden lg:flex lg:items-center lg:justify-center">
+        <div className="w-full min-h-screen overflow-x-hidden font-sans antialiased text-[#483C32] bg-[#f4f0ec] lg:h-screen lg:overflow-hidden lg:flex lg:items-center lg:justify-center">
           <div className="w-full h-full relative lg:flex lg:items-center lg:justify-center">
             <Toaster
               position="bottom-right"

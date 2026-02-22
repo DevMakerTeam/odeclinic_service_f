@@ -187,7 +187,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: '#393939' }} className="px-5 pt-5 pb-10">
-      <div className="flex flex-wrap gap-x-5 gap-y-1 pb-4 mb-5 -mx-7 px-7 border-b border-[#555555]">
+      <div className="flex flex-wrap gap-x-5 gap-y-1 pb-4 mb-5 border-b border-[#555555]">
         {policyLinks.map((link) => (
           <Link
             key={link.label}

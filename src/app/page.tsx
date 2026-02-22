@@ -62,7 +62,7 @@ function HeroSlider() {
   };
 
   return (
-    <section className="relative w-full aspect-square overflow-hidden [&_.slick-slider]:mb-0">
+    <section className="relative w-full aspect-square overflow-hidden [&_.slick-slider]:mb-0 [&_.slick-list]:overflow-hidden [&_.slick-track]:overflow-hidden">
       <Slider {...settings} className="h-full">
         {HERO_SLIDES.map((slide) => (
           <div key={slide.id} className="relative w-full aspect-square outline-none">
@@ -171,7 +171,7 @@ function PartSolutionSlider() {
           <span>부위별 솔루션</span>
         </h1>
       </div>
-      <div className="relative w-full aspect-[3/2] overflow-hidden">
+      <div className="relative w-full aspect-[3/2] overflow-hidden [&_.slick-list]:overflow-hidden [&_.slick-track]:overflow-hidden">
         <Slider {...settings} className="h-full">
           {SOLUTION_SLIDES.map((slide) => (
             <div key={slide.id} className="relative w-full aspect-[3/2] outline-none">
