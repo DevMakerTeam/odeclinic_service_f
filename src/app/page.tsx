@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import { motion } from 'motion/react';
@@ -108,12 +109,13 @@ function BlogThumbnailGrid() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="aspect-square overflow-hidden bg-gray-100 rounded-lg"
+            className="relative aspect-square overflow-hidden bg-gray-100 rounded-lg"
           >
-            <img
+            <Image
               src={post.image}
               alt={`Blog Thumbnail ${post.id}`}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
             />
           </motion.div>
         ))}

@@ -20,7 +20,7 @@ export default function SculptraPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={sculptraData.hero.image} alt={sculptraData.hero.alt} />
+      <HeroSection image={sculptraData.hero.image} alt={sculptraData.hero.alt} title={sculptraData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...sculptraData.info} />

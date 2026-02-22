@@ -20,7 +20,7 @@ export default function ThermagePageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={thermageData.hero.image} alt={thermageData.hero.alt} />
+      <HeroSection image={thermageData.hero.image} alt={thermageData.hero.alt} title={thermageData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...thermageData.info} />

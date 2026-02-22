@@ -20,7 +20,7 @@ export default function UltracolPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={ultracolData.hero.image} alt={ultracolData.hero.alt} />
+      <HeroSection image={ultracolData.hero.image} alt={ultracolData.hero.alt} title={ultracolData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...ultracolData.info} />

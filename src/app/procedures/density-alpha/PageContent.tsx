@@ -20,7 +20,7 @@ export default function DensityAlphaPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={densityAlphaData.hero.image} alt={densityAlphaData.hero.alt} />
+      <HeroSection image={densityAlphaData.hero.image} alt={densityAlphaData.hero.alt} title={densityAlphaData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...densityAlphaData.info} />

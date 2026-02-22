@@ -20,7 +20,7 @@ export default function XerfPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={xerfData.hero.image} alt={xerfData.hero.alt} />
+      <HeroSection image={xerfData.hero.image} alt={xerfData.hero.alt} title={xerfData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...xerfData.info} />

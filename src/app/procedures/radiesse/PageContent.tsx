@@ -20,7 +20,7 @@ export default function RadiessePageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={radiesseData.hero.image} alt={radiesseData.hero.alt} />
+      <HeroSection image={radiesseData.hero.image} alt={radiesseData.hero.alt} title={radiesseData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...radiesseData.info} />

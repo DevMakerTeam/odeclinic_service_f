@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'motion/react';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { Card } from '@/components/ui/card';
 import { hiloWaveData } from '@/data/procedures/hilo-wave';
 import { juvelookVolumeData } from '@/data/procedures/juvelook-volume';
@@ -59,7 +59,7 @@ interface Procedure {
   name: string;
   description: string;
   price: string;
-  image: any;
+  image: string | StaticImageData;
 }
 
 const PROCEDURES: Procedure[] = [
@@ -188,65 +188,76 @@ export default function ProceduresPage() {
   const filteredProcedures = PROCEDURES.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-5 md:px-10 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">시술 안내</h1>
+    <div className="w-full bg-[#f4f0ec] min-h-full pb-10">
+      {/* 헤더 & 필터 */}
+      <div className="bg-white px-5 pt-8 pb-6 border-b border-[#483C32]/5">
+        <h2 className="text-[28px] font-bold text-[#483C32] tracking-tight mb-2">시술 안내</h2>
+        <p className="text-[#483C32]/60 text-[15px] font-medium leading-relaxed mb-6">
+          오드의원의 전문 의료진이 직접 설계한 맞춤형 시술을 만나보세요.
+          <br className="hidden sm:block" />
+          당신의 고민에 꼭 맞는 솔루션을 찾아드립니다.
+        </p>
 
-      {/* Categories */}
-      <div className="flex flex-wrap gap-2 justify-center mb-10">
-        {CATEGORIES.map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryChange(category)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedCategory === category
-                ? 'bg-black text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            {CATEGORY_LABELS[category]}
-          </button>
-        ))}
+        {/* 카테고리 필터 */}
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          {CATEGORIES.map((category) => (
+            <button
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+                selectedCategory === category
+                  ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
+                  : 'bg-[#483C32]/5 text-[#483C32]/60 hover:bg-[#483C32]/10 hover:text-[#483C32]'
+              }`}
+            >
+              {CATEGORY_LABELS[category]}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 gap-6">
-        {filteredProcedures.length > 0 ? (
-          filteredProcedures.map((proc) => (
-            <motion.div
-              key={proc.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => router.push(`/procedures/${proc.id}`)}
-            >
-              <Card className="flex flex-row h-32 overflow-hidden bg-white hover:bg-[#faf9f8] border border-[#483C32]/10 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group gap-0">
-                <div className="w-32 h-full flex-shrink-0 bg-gray-100 relative overflow-hidden">
-                  <Image
-                    src={proc.image}
-                    alt={proc.name}
-                    width={128}
-                    height={128}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="flex-1 flex flex-col justify-center p-4 min-w-0">
-                  <div className="mb-1">
-                    <h4 className="text-base font-bold text-[#483C32] group-hover:text-[#ab9178] transition-colors duration-300 truncate">
+      {/* 시술 목록 */}
+      <div className="px-5 py-6">
+        <div className="grid grid-cols-1 gap-4">
+          {filteredProcedures.length > 0 ? (
+            filteredProcedures.map((proc) => (
+              <motion.div
+                key={proc.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                onClick={() => router.push(`/procedures/${proc.id}`)}
+              >
+                <Card className="flex flex-row h-32 overflow-hidden bg-white hover:bg-[#faf9f8] border border-[#483C32]/5 shadow-sm hover:shadow-md hover:border-[#483C32]/20 transition-all duration-300 cursor-pointer group gap-0 rounded-[20px]">
+                  <div className="w-32 h-full flex-shrink-0 bg-gray-100 relative overflow-hidden rounded-l-[20px]">
+                    <Image
+                      src={proc.image}
+                      alt={proc.name}
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col justify-center p-4 min-w-0">
+                    <h4 className="text-base font-bold text-[#483C32] group-hover:text-black transition-colors duration-300 truncate mb-1">
                       {proc.name}
                     </h4>
+                    <p className="text-xs text-[#483C32]/50 line-clamp-2 leading-relaxed">
+                      {proc.description}
+                    </p>
+                    <p className="mt-2 text-[11px] font-bold text-[#483C32]/30 uppercase tracking-wider">
+                      {proc.price}
+                    </p>
                   </div>
-                  <p className="text-xs text-[#483C32]/60 line-clamp-2 leading-relaxed">
-                    {proc.description}
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-          ))
-        ) : (
-          <div className="col-span-full text-center py-20 text-gray-400">
-            해당 카테고리에 등록된 시술이 없습니다.
-          </div>
-        )}
+                </Card>
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-20 text-[#483C32]/40 font-bold">
+              해당 카테고리에 등록된 시술이 없습니다.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ export default function UltherapyPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={ultherapyData.hero.image} alt={ultherapyData.hero.alt} />
+      <HeroSection image={ultherapyData.hero.image} alt={ultherapyData.hero.alt} title={ultherapyData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...ultherapyData.info} />

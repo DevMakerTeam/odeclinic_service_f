@@ -20,7 +20,7 @@ export default function JuvelookVolumePageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={juvelookVolumeData.hero.image} alt={juvelookVolumeData.hero.alt} />
+      <HeroSection image={juvelookVolumeData.hero.image} alt={juvelookVolumeData.hero.alt} title={juvelookVolumeData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...juvelookVolumeData.info} />

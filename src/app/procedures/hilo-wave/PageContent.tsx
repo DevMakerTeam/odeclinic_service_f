@@ -28,7 +28,7 @@ export default function HiloWavePageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={hiloWaveData.hero.image} alt={hiloWaveData.hero.alt} />
+      <HeroSection image={hiloWaveData.hero.image} alt={hiloWaveData.hero.alt} title={hiloWaveData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...hiloWaveData.info} />

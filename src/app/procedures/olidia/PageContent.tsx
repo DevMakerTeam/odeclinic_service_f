@@ -20,7 +20,7 @@ export default function OlidiaPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={olidiaData.hero.image} alt={olidiaData.hero.alt} />
+      <HeroSection image={olidiaData.hero.image} alt={olidiaData.hero.alt} title={olidiaData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...olidiaData.info} />

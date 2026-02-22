@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { User, ShoppingBag } from 'lucide-react';
@@ -88,10 +89,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
         {/* Promotion Banner */}
         <div className="relative w-full rounded-2xl overflow-hidden shadow-xl group cursor-pointer h-auto aspect-[3/4]">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1762631203805-88841687ab4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwc3BhJTIwYWVzdGhldGljfGVufDF8fHx8MTc3MDA4MjE5Nnww&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Promotion Banner"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#483C32]/60 via-transparent to-transparent flex flex-col justify-end p-6">
             <span className="text-white/90 text-xs font-medium mb-1 tracking-wider uppercase">

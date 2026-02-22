@@ -20,7 +20,7 @@ export default function UndereyeFillerPageContent() {
   return (
     <div className="bg-background min-h-screen font-sans text-foreground w-full">
       {/* Hero Section */}
-      <HeroSection image={undereyeFillerData.hero.image} alt={undereyeFillerData.hero.alt} />
+      <HeroSection image={undereyeFillerData.hero.image} alt={undereyeFillerData.hero.alt} title={undereyeFillerData.info.displayTitle} />
 
       {/* Procedure Info Section */}
       <ProcedureInfoSection {...undereyeFillerData.info} />
