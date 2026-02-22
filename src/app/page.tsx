@@ -10,25 +10,29 @@ import { ImageWithFallback } from '@/components/common/ImageWithFallback';
 const HERO_SLIDES = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMG1pbmltYWwlMjB3aGl0ZXxlbnwxfHx8fDE3NzE1NzkyMTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMG1pbmltYWwlMjB3aGl0ZXxlbnwxfHx8fDE3NzE1NzkyMTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Authentic Aesthetic Art',
     subtitle: '가장 나다운 아름다움을 찾는 시간, 오드클리닉',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1768836180171-24c727a594b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY2xpbmljJTIwcmVjZXB0aW9uJTIwd2hpdGUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzE1NzkyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1768836180171-24c727a594b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY2xpbmljJTIwcmVjZXB0aW9uJTIwd2hpdGUlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzE1NzkyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Private & Premium Care',
     subtitle: '당신만을 위해 준비된 프라이빗한 공간에서 시작되는 변화',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/flagged/photo-1577047795497-ba38bab31113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMGJlYXV0eSUyMHdvbWFuJTIwcHJvZmlsZSUyMGVsZWdhbnR8ZW58MXx8fHwxNzcxNTc5MjIxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/flagged/photo-1577047795497-ba38bab31113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMGJlYXV0eSUyMHdvbWFuJTIwcHJvZmlsZSUyMGVsZWdhbnR8ZW58MXx8fHwxNzcxNTc5MjIxfDA&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Essential Skin Solution',
     subtitle: '기본에 충실한 진료로 피부 본연의 건강함을 깨웁니다',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1679496125396-8d01c968d071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMGNsaW5pYyUyMHByb2NlZHVyZSUyMGxhc2VyJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTIyMXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1679496125396-8d01c968d071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMGNsaW5pYyUyMHByb2NlZHVyZSUyMGxhc2VyJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTIyMXww&ixlib=rb-4.1.0&q=80&w=1080',
     title: 'Advanced Medical Beauty',
     subtitle: '숙련된 의료진과 프리미엄 장비로 완성하는 정교한 시술',
   },
@@ -72,18 +76,66 @@ function HeroSlider() {
 }
 
 const BLOG_POSTS = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMHdoaXRlJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1588776814546-daab30f310ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMHByb2NlZHVyZSUyMGxhc2VyJTIwdHJlYXRtZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1767360963892-3353defd6584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMHByb2R1Y3RzJTIwbHV4dXJ5JTIwbWluaW1hbHxlbnwxfHx8fDE3NzE1Nzk1MTZ8MA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1725034246182-0bb08e80d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGdsb3dpbmclMjBza2luJTIwcG9ydHJhaXQlMjBuYXR1cmFsfGVufDF8fHx8MTc3MTUyMTUwNXww&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 5, image: 'https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXNrJTIwdHJlYXRtZW50JTIwcHJvZmVzc2lvbmFsJTIwc3BhfGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 6, image: 'https://images.unsplash.com/photo-1595871151608-bc7abd1caca3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjB0aGVyYXB5JTIwbWFzc2FnZSUyMHNwYSUyMHJvb218ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 7, image: 'https://images.unsplash.com/photo-1747098393451-6b985f62a2c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwY29zbWV0aWMlMjBpbmdyZWRpZW50cyUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 8, image: 'https://images.unsplash.com/photo-1752842350772-2921657e50d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RveCUyMGluamVjdGlvbiUyMHByb2NlZHVyZSUyMG1lZGljYWwlMjBjbGluaWN8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 9, image: 'https://images.unsplash.com/photo-1765766600805-e75c44124d2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBiYXRocm9vbSUyMGludGVyaW9yJTIwd2hpdGV8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 10, image: 'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeWRyYWZhY2lhbCUyMHRyZWF0bWVudCUyMHNraW4lMjBjYXJlJTIwbWFjaGluZXxlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 11, image: 'https://images.unsplash.com/photo-1659353888477-6e6aab941b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkb2N0b3IlMjBjb25zdWx0YXRpb24lMjBwYXRpZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 12, image: 'https://images.unsplash.com/photo-1642844613096-7b743b7d9915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  {
+    id: 1,
+    image:
+      'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMHdoaXRlJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 2,
+    image:
+      'https://images.unsplash.com/photo-1588776814546-daab30f310ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMHByb2NlZHVyZSUyMGxhc2VyJTIwdHJlYXRtZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 3,
+    image:
+      'https://images.unsplash.com/photo-1767360963892-3353defd6584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMHByb2R1Y3RzJTIwbHV4dXJ5JTIwbWluaW1hbHxlbnwxfHx8fDE3NzE1Nzk1MTZ8MA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 4,
+    image:
+      'https://images.unsplash.com/photo-1725034246182-0bb08e80d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGdsb3dpbmclMjBza2luJTIwcG9ydHJhaXQlMjBuYXR1cmFsfGVufDF8fHx8MTc3MTUyMTUwNXww&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 5,
+    image:
+      'https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXNrJTIwdHJlYXRtZW50JTIwcHJvZmVzc2lvbmFsJTIwc3BhfGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 6,
+    image:
+      'https://images.unsplash.com/photo-1595871151608-bc7abd1caca3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjB0aGVyYXB5JTIwbWFzc2FnZSUyMHNwYSUyMHJvb218ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 7,
+    image:
+      'https://images.unsplash.com/photo-1747098393451-6b985f62a2c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwY29zbWV0aWMlMjBpbmdyZWRpZW50cyUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 8,
+    image:
+      'https://images.unsplash.com/photo-1752842350772-2921657e50d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RveCUyMGluamVjdGlvbiUyMHByb2NlZHVyZSUyMG1lZGljYWwlMjBjbGluaWN8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 9,
+    image:
+      'https://images.unsplash.com/photo-1765766600805-e75c44124d2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBiYXRocm9vbSUyMGludGVyaW9yJTIwd2hpdGV8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 10,
+    image:
+      'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeWRyYWZhY2lhbCUyMHRyZWF0bWVudCUyMHNraW4lMjBjYXJlJTIwbWFjaGluZXxlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 11,
+    image:
+      'https://images.unsplash.com/photo-1659353888477-6e6aab941b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkb2N0b3IlMjBjb25zdWx0YXRpb24lMjBwYXRpZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 12,
+    image:
+      'https://images.unsplash.com/photo-1642844613096-7b743b7d9915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
 ];
 
 function BlogThumbnailGrid() {
@@ -118,10 +170,26 @@ function BlogThumbnailGrid() {
 }
 
 const SOLUTION_SLIDES = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1657470179441-c69861f0f748?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1749997087675-1c138e19b44b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080' },
+  {
+    id: 1,
+    image:
+      'https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 2,
+    image:
+      'https://images.unsplash.com/photo-1657470179441-c69861f0f748?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 3,
+    image:
+      'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
+    id: 4,
+    image:
+      'https://images.unsplash.com/photo-1749997087675-1c138e19b44b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+  },
 ];
 
 function PartSolutionSlider() {
@@ -140,7 +208,9 @@ function PartSolutionSlider() {
   return (
     <section className="w-full pb-20 bg-white">
       <div className="text-center py-16 px-4">
-        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">Part Solution</p>
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
+          Part Solution
+        </p>
         <h1 className="text-3xl text-black font-bold tracking-tight">
           <span className="text-[#483C32]">오드의원, </span>
           <span>부위별 솔루션</span>
@@ -165,33 +235,42 @@ function PartSolutionSlider() {
 const PHILOSOPHY_ITEMS = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
     title: '의료진 상담',
-    description: '시술에 대해서 잘 모르시더라도 집도의와의 상담을 통해, 최적의 시술 계획을 세울 수 있습니다.',
+    description:
+      '시술에 대해서 잘 모르시더라도 집도의와의 상담을 통해, 최적의 시술 계획을 세울 수 있습니다.',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1754817408912-49aa34c270c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1754817408912-49aa34c270c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
     title: '다양한 장비 보유',
-    description: '울쎄라, 써마지, 엠페이스, 세르프, 덴서티, 온다, 슈링크, 미라젯 등 프리미엄 장비에 계속해서 투자하여, 내 상태에 맞는 최적의 옵션을 선택하실 수 있도록 도와드립니다.',
+    description:
+      '울쎄라, 써마지, 엠페이스, 세르프, 덴서티, 온다, 슈링크, 미라젯 등 프리미엄 장비에 계속해서 투자하여, 내 상태에 맞는 최적의 옵션을 선택하실 수 있도록 도와드립니다.',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
     title: '시술 전후 사진 비교 상담',
-    description: '효과가 서서히 나타나는 피부과 시술의 특성상 변화를 체감하기 어렵기 때문에 2D, 3D 피부진단기 사진을 촬영하여 시술 전후 나타나는 변화를 눈으로 확인하실 수 있도록 비교해드리고 있습니다.',
+    description:
+      '효과가 서서히 나타나는 피부과 시술의 특성상 변화를 체감하기 어렵기 때문에 2D, 3D 피부진단기 사진을 촬영하여 시술 전후 나타나는 변화를 눈으로 확인하실 수 있도록 비교해드리고 있습니다.',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1618384874910-9f823a21babb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1618384874910-9f823a21babb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
     title: '정품정량 사용',
     description: '오드의원은 환자와의 신뢰를 최우선으로 생각하며, 항상 정품, 정량만을 사용합니다.',
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1660795774538-55c89a99723e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
+    image:
+      'https://images.unsplash.com/photo-1660795774538-55c89a99723e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080',
     title: '풍부한 임상 케이스, 학술활동',
-    description: '모든 의료진이 울쎄라, 써마지 등 리프팅 시술 뿐만 아니라, 필러와 같은 주사시술까지 풍부한 임상 케이스를 보유하고 있습니다.\n\n또 학회에서의 강연, 정기적인 내부 세미나를 통해 시술에 대해 끊임없이 연구하고 배웁니다.',
+    description:
+      '모든 의료진이 울쎄라, 써마지 등 리프팅 시술 뿐만 아니라, 필러와 같은 주사시술까지 풍부한 임상 케이스를 보유하고 있습니다.\n\n또 학회에서의 강연, 정기적인 내부 세미나를 통해 시술에 대해 끊임없이 연구하고 배웁니다.',
   },
 ];
 
@@ -203,12 +282,42 @@ const PROMISES = [
 ];
 
 const MEDICAL_SYSTEM = [
-  { id: 1, step: 'step1. 내원', image: 'https://images.unsplash.com/photo-1758448656987-cfae6bf225e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 2, step: 'step2. 1:1 원장 상담 및 시술 디자인', image: 'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 3, step: 'step3. 재 상담', image: 'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 4, step: 'step4. 프라이빗 1인실 시술', image: 'https://images.unsplash.com/photo-1629641320554-c8e8cfed610f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 5, step: 'step5. 맞춤관리', image: 'https://images.unsplash.com/photo-1728949202468-c37fdbd76856?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
-  { id: 6, step: 'step6. 귀가', image: 'https://images.unsplash.com/photo-1595324090213-bb34ed302604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600' },
+  {
+    id: 1,
+    step: 'step1. 내원',
+    image:
+      'https://images.unsplash.com/photo-1758448656987-cfae6bf225e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 2,
+    step: 'step2. 1:1 원장 상담 및 시술 디자인',
+    image:
+      'https://images.unsplash.com/photo-1730701878011-a423ec61c328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 3,
+    step: 'step3. 재 상담',
+    image:
+      'https://images.unsplash.com/photo-1663229049147-30f47be043ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 4,
+    step: 'step4. 프라이빗 1인실 시술',
+    image:
+      'https://images.unsplash.com/photo-1629641320554-c8e8cfed610f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 5,
+    step: 'step5. 맞춤관리',
+    image:
+      'https://images.unsplash.com/photo-1728949202468-c37fdbd76856?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
+  {
+    id: 6,
+    step: 'step6. 귀가',
+    image:
+      'https://images.unsplash.com/photo-1595324090213-bb34ed302604?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
+  },
 ];
 
 const HIGHLIGHT_PARTS = [
@@ -224,7 +333,9 @@ function PhilosophySection() {
       {/* 진료철학 */}
       <div className="pt-0 pb-20 px-6">
         <div className="text-center py-10 px-4">
-          <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">ODE Philosophy</p>
+          <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
+            ODE Philosophy
+          </p>
           <h1 className="text-3xl text-black font-bold tracking-tight">
             <span className="text-[#483C32]">오드의원, </span>
             <span>진료철학</span>
@@ -259,7 +370,9 @@ function PhilosophySection() {
 
       {/* 4가지 약속 */}
       <div className="py-24 bg-gray-50 px-8">
-        <h2 className="text-xl text-[#483C32] font-bold mb-12 text-center">오드의원은 4가지의 약속을 드립니다.</h2>
+        <h2 className="text-xl text-[#483C32] font-bold mb-12 text-center">
+          오드의원은 4가지의 약속을 드립니다.
+        </h2>
         <div className="space-y-6 max-w-md mx-auto">
           {PROMISES.map((promise, index) => {
             const cleanPromise = promise.replace(/^\d{2}\.\s*/, '');
@@ -315,7 +428,9 @@ function PhilosophySection() {
                 />
               </div>
               <div className="flex flex-col items-center gap-1.5 min-h-[3.5rem]">
-                <span className="text-[12px] font-bold text-[#483C32] uppercase">{step.step.split('. ')[0]}</span>
+                <span className="text-[12px] font-bold text-[#483C32] uppercase">
+                  {step.step.split('. ')[0]}
+                </span>
                 <span className="text-[14px] font-medium text-black text-center leading-tight px-1">
                   {step.step.split('. ')[1]}
                 </span>
@@ -332,7 +447,9 @@ function LocationSection() {
   return (
     <section className="w-full pt-24 pb-20 bg-white overflow-hidden">
       <div className="text-center mb-16 px-4">
-        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">ODE Location</p>
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
+          ODE Location
+        </p>
         <h1 className="text-3xl text-black font-bold tracking-tight">
           <span className="text-[#483C32]">가장 특별한 곳, </span>
           <span>오드의원</span>
@@ -346,7 +463,7 @@ function LocationSection() {
         />
       </div>
 
-      <div className="w-full px-5 space-y-8">
+      {/* <div className="w-full px-5 space-y-8">
         <div className="space-y-4">
           <div className="space-y-1.5">
             <h3 className="text-[18px] font-bold text-[#483C32] tracking-tight">병원 오시는길</h3>
@@ -374,6 +491,47 @@ function LocationSection() {
               <p className="text-[12px] text-red-500 leading-relaxed font-medium">
                 * 점심시간 없이 진료하며,<br />
                 공휴일과 일요일은 휴진입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      <div className="w-full px-5 space-y-6">
+        {/* Contact Info */}
+        <div className="space-y-3">
+          <h3 className="text-[24px] font-bold text-black tracking-tight mb-4">병원 오시는길</h3>
+          <div className="space-y-2">
+            <p className="text-[#483C32] text-[17px] font-semibold leading-relaxed">
+              주소 : 서울특별시 강남구 강남대로 340, 8층(역삼동, 경원빌딩)
+            </p>
+            <p className="text-[#483C32] text-[17px] font-medium tracking-tight">
+              TEL : <span className="text-[22px] font-bold">02-569-0222</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Separator */}
+        <div className="border-t border-[#483C32]/20 pt-6">
+          {/* Clinic Hours */}
+          <h3 className="text-[24px] font-bold text-black tracking-tight mb-5">진료시간 안내</h3>
+
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="text-[#483C32] text-[18px] font-bold min-w-[60px]">월 - 금 :</span>
+              <span className="text-[#483C32] text-[18px] font-bold tracking-wide">
+                AM 11 : 30 ~ PM 08 : 30
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#483C32] text-[18px] font-bold min-w-[60px]">토요일 :</span>
+              <span className="text-[#483C32] text-[18px] font-bold tracking-wide">
+                AM 10 : 00 ~ PM 04 : 00
+              </span>
+            </div>
+            <div className="mt-2">
+              <p className="text-[15px] text-red-500 font-medium tracking-tight leading-relaxed">
+                * 점심시간없이 진료하며, 공휴일과 일요일은 휴진입니다.
               </p>
             </div>
           </div>
