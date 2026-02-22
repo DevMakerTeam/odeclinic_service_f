@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { User, ShoppingBag } from 'lucide-react';
+import Footer from '@/components/layout/Footer';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -177,7 +178,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </nav>
         </header>
 
-        <div className="flex-1 overflow-y-auto hide-scrollbar">{children}</div>
+        <div className="flex-1 overflow-y-auto hide-scrollbar">
+          {children}
+          <Footer />
+        </div>
       </main>
     </>
   );
