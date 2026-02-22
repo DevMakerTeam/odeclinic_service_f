@@ -93,8 +93,8 @@ const BLOG_POSTS = [
 
 function BlogThumbnailGrid() {
   return (
-    <section className="w-full pt-0 pb-20 px-1 bg-white">
-      <div className="text-center py-16 px-4">
+    <section className="w-full pt-0 pb-20 px-7 bg-white">
+      <div className="text-center py-16">
         <p className="text-md text-[#483C32] font-bold tracking-widest mb-2">ODE Column</p>
         <h1 className="text-3xl text-black font-bold tracking-tight">
           <span className="text-[#483C32]">오드의원, </span>
@@ -160,7 +160,7 @@ function PartSolutionSlider() {
 
   return (
     <section className="w-full pb-20 bg-white">
-      <div className="text-center py-16 px-4">
+      <div className="text-center py-16 px-7">
         <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
           Part Solution
         </p>
@@ -284,8 +284,8 @@ function PhilosophySection() {
   return (
     <section className="w-full bg-white pb-24">
       {/* 진료철학 */}
-      <div className="pt-0 pb-20 px-6">
-        <div className="text-center py-10 px-4">
+      <div className="pt-0 pb-20 px-7">
+        <div className="text-center py-10">
           <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
             ODE Philosophy
           </p>
@@ -322,7 +322,7 @@ function PhilosophySection() {
       </div>
 
       {/* 4가지 약속 */}
-      <div className="py-24 bg-gray-50 px-8">
+      <div className="py-24 bg-gray-50 px-7">
         <h2 className="text-xl text-[#483C32] font-bold mb-12 text-center">
           오드의원은 4가지의 약속을 드립니다.
         </h2>
@@ -353,7 +353,7 @@ function PhilosophySection() {
       </div>
 
       {/* 특별한 의료시스템 */}
-      <div className="py-24 px-4">
+      <div className="py-24 px-7">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-bold mb-4">
             오드의원의 <span className="text-[#483C32]">특별한 의료시스템</span>
@@ -399,7 +399,7 @@ function PhilosophySection() {
 function LocationSection() {
   return (
     <section className="w-full pt-24 pb-20 bg-white overflow-hidden">
-      <div className="text-center mb-16 px-4">
+      <div className="text-center mb-16 px-7">
         <p className="text-xs text-[#483C32] font-bold tracking-widest mb-2 uppercase">
           ODE Location
         </p>
@@ -450,7 +450,7 @@ function LocationSection() {
         </div>
       </div> */}
 
-      <div className="w-full px-5 space-y-6">
+      <div className="w-full px-7 space-y-6">
         {/* Contact Info */}
         <div className="space-y-3">
           <h3 className="text-[20px] font-bold text-black tracking-tight mb-4">병원 오시는길</h3>
