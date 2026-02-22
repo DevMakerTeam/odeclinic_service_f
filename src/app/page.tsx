@@ -470,14 +470,14 @@ function LocationSection() {
           <h3 className="text-[20px] font-bold text-black tracking-tight mb-5">진료시간 안내</h3>
 
           <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="text-[#483C32] text-[15px] font-bold min-w-[60px]">월 - 금 :</span>
+            <div className="flex items-center">
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">월 - 금 :</span>
               <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
                 AM 11 : 30 ~ PM 08 : 30
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#483C32] text-[15px] font-bold min-w-[60px]">토요일 :</span>
+            <div className="flex items-center">
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">토요일 :</span>
               <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
                 AM 10 : 00 ~ PM 04 : 00
               </span>
