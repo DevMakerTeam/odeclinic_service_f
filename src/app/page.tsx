@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Slider from 'react-slick';
 import { motion } from 'motion/react';
 import 'slick-carousel/slick/slick.css';
@@ -76,66 +77,18 @@ function HeroSlider() {
 }
 
 const BLOG_POSTS = [
-  {
-    id: 1,
-    image:
-      'https://images.unsplash.com/photo-1600947871775-082dd97e2d96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMHdoaXRlJTIwbW9kZXJufGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 2,
-    image:
-      'https://images.unsplash.com/photo-1588776814546-daab30f310ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXJtYXRvbG9neSUyMHByb2NlZHVyZSUyMGxhc2VyJTIwdHJlYXRtZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 3,
-    image:
-      'https://images.unsplash.com/photo-1767360963892-3353defd6584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxza2luY2FyZSUyMHByb2R1Y3RzJTIwbHV4dXJ5JTIwbWluaW1hbHxlbnwxfHx8fDE3NzE1Nzk1MTZ8MA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 4,
-    image:
-      'https://images.unsplash.com/photo-1725034246182-0bb08e80d7e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGdsb3dpbmclMjBza2luJTIwcG9ydHJhaXQlMjBuYXR1cmFsfGVufDF8fHx8MTc3MTUyMTUwNXww&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 5,
-    image:
-      'https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXNrJTIwdHJlYXRtZW50JTIwcHJvZmVzc2lvbmFsJTIwc3BhfGVufDF8fHx8MTc3MTU3OTUxNnww&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 6,
-    image:
-      'https://images.unsplash.com/photo-1595871151608-bc7abd1caca3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjB0aGVyYXB5JTIwbWFzc2FnZSUyMHNwYSUyMHJvb218ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 7,
-    image:
-      'https://images.unsplash.com/photo-1747098393451-6b985f62a2c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwY29zbWV0aWMlMjBpbmdyZWRpZW50cyUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 8,
-    image:
-      'https://images.unsplash.com/photo-1752842350772-2921657e50d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3RveCUyMGluamVjdGlvbiUyMHByb2NlZHVyZSUyMG1lZGljYWwlMjBjbGluaWN8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 9,
-    image:
-      'https://images.unsplash.com/photo-1765766600805-e75c44124d2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBiYXRocm9vbSUyMGludGVyaW9yJTIwd2hpdGV8ZW58MXx8fHwxNzcxNTc5NTE3fDA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 10,
-    image:
-      'https://images.unsplash.com/photo-1601839777132-b3f4e455c369?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeWRyYWZhY2lhbCUyMHRyZWF0bWVudCUyMHNraW4lMjBjYXJlJTIwbWFjaGluZXxlbnwxfHx8fDE3NzE1Nzk1MTd8MA&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 11,
-    image:
-      'https://images.unsplash.com/photo-1659353888477-6e6aab941b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXN0aGV0aWMlMjBkb2N0b3IlMjBjb25zdWx0YXRpb24lMjBwYXRpZW50fGVufDF8fHx8MTc3MTU3OTUxN3ww&ixlib=rb-4.1.0&q=80&w=600',
-  },
-  {
-    id: 12,
-    image:
-      'https://images.unsplash.com/photo-1642844613096-7b743b7d9915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=600',
-  },
+  { id: 1, image: '/main/main-1.png' },
+  { id: 2, image: '/main/main-2.png' },
+  { id: 3, image: '/main/main-3.png' },
+  { id: 4, image: '/main/main-4.png' },
+  { id: 5, image: '/main/main-5.png' },
+  { id: 6, image: '/main/main-6.png' },
+  { id: 7, image: '/main/main-7.png' },
+  { id: 8, image: '/main/main-8.png' },
+  { id: 9, image: '/main/main-9.png' },
+  { id: 10, image: '/main/main-10.png' },
+  { id: 11, image: '/main/main-11.png' },
+  { id: 12, image: '/main/main-12.png' },
 ];
 
 function BlogThumbnailGrid() {
@@ -447,10 +400,10 @@ function LocationSection() {
   return (
     <section className="w-full pt-24 pb-20 bg-white overflow-hidden">
       <div className="text-center mb-16 px-4">
-        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
+        <p className="text-xs text-[#483C32] font-bold tracking-widest mb-2 uppercase">
           ODE Location
         </p>
-        <h1 className="text-3xl text-black font-bold tracking-tight">
+        <h1 className="text-2xl text-black font-bold tracking-tight">
           <span className="text-[#483C32]">가장 특별한 곳, </span>
           <span>오드의원</span>
         </h1>
@@ -500,13 +453,13 @@ function LocationSection() {
       <div className="w-full px-5 space-y-6">
         {/* Contact Info */}
         <div className="space-y-3">
-          <h3 className="text-[24px] font-bold text-black tracking-tight mb-4">병원 오시는길</h3>
+          <h3 className="text-[20px] font-bold text-black tracking-tight mb-4">병원 오시는길</h3>
           <div className="space-y-2">
-            <p className="text-[#483C32] text-[17px] font-semibold leading-relaxed">
+            <p className="text-[#483C32] text-[14px] font-semibold leading-relaxed">
               주소 : 서울특별시 강남구 강남대로 340, 8층(역삼동, 경원빌딩)
             </p>
-            <p className="text-[#483C32] text-[17px] font-medium tracking-tight">
-              TEL : <span className="text-[22px] font-bold">02-569-0222</span>
+            <p className="text-[#483C32] text-[14px] font-medium tracking-tight">
+              TEL : <span className="text-[18px] text-[#6A4A37] font-bold">02-569-0222</span>
             </p>
           </div>
         </div>
@@ -514,23 +467,23 @@ function LocationSection() {
         {/* Separator */}
         <div className="border-t border-[#483C32]/20 pt-6">
           {/* Clinic Hours */}
-          <h3 className="text-[24px] font-bold text-black tracking-tight mb-5">진료시간 안내</h3>
+          <h3 className="text-[20px] font-bold text-black tracking-tight mb-5">진료시간 안내</h3>
 
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-[#483C32] text-[18px] font-bold min-w-[60px]">월 - 금 :</span>
-              <span className="text-[#483C32] text-[18px] font-bold tracking-wide">
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[60px]">월 - 금 :</span>
+              <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
                 AM 11 : 30 ~ PM 08 : 30
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#483C32] text-[18px] font-bold min-w-[60px]">토요일 :</span>
-              <span className="text-[#483C32] text-[18px] font-bold tracking-wide">
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[60px]">토요일 :</span>
+              <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
                 AM 10 : 00 ~ PM 04 : 00
               </span>
             </div>
             <div className="mt-2">
-              <p className="text-[15px] text-red-500 font-medium tracking-tight leading-relaxed">
+              <p className="text-[11px] text-red-500 font-semibold tracking-tight leading-relaxed">
                 * 점심시간없이 진료하며, 공휴일과 일요일은 휴진입니다.
               </p>
             </div>
@@ -547,6 +500,14 @@ export default function HomePage() {
       <HeroSlider />
       <div className="[&>section]:pb-0">
         <BlogThumbnailGrid />
+        <div className="flex justify-center pt-8 pb-12">
+          <Link
+            href="/column"
+            className="text-white text-sm px-10 py-4 tracking-widest rounded-sm font-[Pretendard] font-semibold bg-[#654C3A]"
+          >
+            More Column
+          </Link>
+        </div>
       </div>
       <div className="[&>section]:pb-0">
         <PartSolutionSlider />
