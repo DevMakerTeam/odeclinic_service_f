@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react';
 import hkFlag from '@/assets/icons/flags/flag-hk.png';
 import koreaFlag from '@/assets/icons/flags/flag-korea.png';
 import chinaFlag from '@/assets/icons/flags/flag-china.png';
+import enFlag from '@/assets/icons/flags/flag-en.png';
 import Image from 'next/image';
 
 const languages = [
@@ -15,14 +16,19 @@ const languages = [
     flag: koreaFlag,
   },
   {
-    code: 'zh-TW',
-    label: '中文(繁體)',
-    flag: hkFlag,
+    code: 'en',
+    label: 'English',
+    flag: enFlag,
   },
   {
     code: 'zh-CN',
     label: '中文(简体)',
     flag: chinaFlag,
+  },
+  {
+    code: 'zh-TW',
+    label: '中文(繁體)',
+    flag: hkFlag,
   },
 ];
 
@@ -49,10 +55,8 @@ export function LanguageSelector() {
           className="z-50 min-w-[120px] bg-white rounded-lg shadow-lg border border-black/5 p-1 animate-in fade-in zoom-in-95 data-[side=bottom]:slide-in-from-top-2"
           sideOffset={5}
         >
-          {[...languages]
-            .sort((a, b) => a.code.localeCompare(b.code))
-            .map((lang) => (
-              <DropdownMenu.Item
+          {languages.map((lang) => (
+            <DropdownMenu.Item
                 key={lang.code}
                 className="flex items-center gap-2 px-2 py-1.5 text-xs font-medium outline-none cursor-pointer hover:bg-black/5 rounded-md select-none transition-colors"
                 onSelect={() => setSelected(lang)}
