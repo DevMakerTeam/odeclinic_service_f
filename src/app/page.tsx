@@ -96,11 +96,7 @@ function BlogThumbnailGrid() {
   return (
     <section className="w-full pt-0 pb-20 px-7 bg-white">
       <div className="text-center py-16">
-        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2">ODE Column</p>
-        <h1 className="text-3xl text-black font-bold tracking-tight">
-          <span className="text-[#483C32]">오드의원, </span>
-          <span>함께 살펴보세요</span>
-        </h1>
+        <p className="text-2xl text-[#483C32] font-bold">ODE Column</p>
       </div>
       <div className="grid grid-cols-3 gap-1.5">
         {BLOG_POSTS.map((post) => (
@@ -163,9 +159,7 @@ function PartSolutionSlider() {
   return (
     <section className="w-full pb-20 bg-white">
       <div className="text-center py-16 px-7">
-        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
-          Part Solution
-        </p>
+        <p className="text-md text-[#483C32] font-bold tracking-widest mb-2">Solutions by Area</p>
         <h1 className="text-3xl text-black font-bold tracking-tight">
           <span className="text-[#483C32]">오드의원, </span>
           <span>부위별 솔루션</span>
@@ -288,8 +282,8 @@ function PhilosophySection() {
       {/* 진료철학 */}
       <div className="pt-0 pb-20 px-7">
         <div className="text-center py-10">
-          <p className="text-md text-[#483C32] font-bold tracking-widest mb-2 uppercase">
-            ODE Philosophy
+          <p className="text-md text-[#483C32] font-bold tracking-widest mb-2">
+            The ODE Philosophy
           </p>
           <h1 className="text-3xl text-black font-bold tracking-tight">
             <span className="text-[#483C32]">오드의원, </span>
@@ -474,19 +468,17 @@ function LocationSection() {
           <div className="space-y-1">
             <div className="flex items-center">
               <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">월 - 금 :</span>
-              <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
-                AM 11 : 30 ~ PM 08 : 30
-              </span>
+              <span className="text-[#483C32] text-[15px] font-bold">AM 11 : 30 ~ PM 08 : 30</span>
             </div>
             <div className="flex items-center">
-              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">토요일 :</span>
-              <span className="text-[#483C32] text-[15px] font-bold tracking-wide">
-                AM 10 : 00 ~ PM 04 : 00
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">
+                주&nbsp;&nbsp;&nbsp;&nbsp;말 :{/* 토 - 일 : */}
               </span>
+              <span className="text-[#483C32] text-[15px] font-bold">AM 10 : 00 ~ PM 04 : 00</span>
             </div>
             <div className="mt-2">
               <p className="text-[11px] text-red-500 font-semibold tracking-tight leading-relaxed">
-                * 점심시간없이 진료하며, 공휴일과 일요일은 휴진입니다.
+                * 점심시간 없이 진료합니다.
               </p>
             </div>
           </div>
@@ -505,7 +497,7 @@ export default function HomePage() {
         <div className="flex justify-center pt-8 pb-12">
           <Link
             href="/column"
-            className="text-white text-sm px-10 py-4 tracking-widest rounded-sm font-[Pretendard] font-semibold bg-[#654C3A]"
+            className="text-white text-sm px-10 py-4 rounded-sm font-[Pretendard] font-semibold bg-[#654C3A]"
           >
             More Column
           </Link>

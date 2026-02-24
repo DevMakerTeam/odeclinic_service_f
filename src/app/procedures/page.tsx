@@ -30,16 +30,16 @@ const CATEGORIES: Category[] = [
 
 // 카테고리 한글 레이블
 const CATEGORY_LABELS: Record<Category, string> = {
-  'volume': '볼륨',
+  volume: '볼륨',
   'lifting-tightening': '리프팅 & 타이트닝',
-  'anti-aging': '향노화',
+  'anti-aging': '항노화',
   'skin-booster': '스킨부스터',
   'body-program': '바디 프로그램',
 };
 
 // 카테고리와 URL 필터 매핑
 const CATEGORY_TO_FILTER: Record<Category, string | null> = {
-  'volume': null,
+  volume: null,
   'lifting-tightening': 'lifting-tightening',
   'anti-aging': 'anti-aging',
   'skin-booster': 'skin-booster',
@@ -156,28 +156,26 @@ const PROCEDURES: Procedure[] = [
 export default function ProceduresPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  
+
   // URL에서 filter 파라미터 읽기
   const filterParam = searchParams.get('filter');
-  const initialCategory: Category = filterParam && FILTER_TO_CATEGORY[filterParam] 
-    ? FILTER_TO_CATEGORY[filterParam] 
-    : 'volume';
-  
+  const initialCategory: Category =
+    filterParam && FILTER_TO_CATEGORY[filterParam] ? FILTER_TO_CATEGORY[filterParam] : 'volume';
+
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
 
   // URL 파라미터가 변경되면 selectedCategory 업데이트
   useEffect(() => {
     const filterParam = searchParams.get('filter');
-    const category: Category = filterParam && FILTER_TO_CATEGORY[filterParam]
-      ? FILTER_TO_CATEGORY[filterParam]
-      : 'volume';
+    const category: Category =
+      filterParam && FILTER_TO_CATEGORY[filterParam] ? FILTER_TO_CATEGORY[filterParam] : 'volume';
     setSelectedCategory(category);
   }, [searchParams]);
 
   const handleCategoryChange = (category: Category) => {
     setSelectedCategory(category);
     const filter = CATEGORY_TO_FILTER[category];
-    
+
     if (filter) {
       router.push(`/procedures?filter=${filter}`);
     } else {
@@ -193,26 +191,31 @@ export default function ProceduresPage() {
       <div className="bg-white px-5 pt-8 pb-6 border-b border-[#483C32]/5">
         <h2 className="text-[28px] font-bold text-[#483C32] tracking-tight mb-2">시술 안내</h2>
         <p className="text-[#483C32]/60 text-[15px] font-medium leading-relaxed mb-6">
-          오드의원의 전문 의료진이 직접 설계한 맞춤형 시술을 만나보세요.
+          {/* 오드의원의 전문 의료진이 직접 설계한 맞춤형 시술을 만나보세요. */}
+          숙련된 의료진이 엄선한 안티에이징 시술들을 만나보세요.
           <br className="hidden sm:block" />
-          당신의 고민에 꼭 맞는 솔루션을 찾아드립니다.
+          {/* 당신의 고민에 꼭 맞는 솔루션을 찾아드립니다. */}
+          오드의원에서는 의료진이 직접 상담을 통해 최적의 솔루션을 찾아드립니다.
         </p>
 
         {/* 카테고리 필터 */}
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-          {CATEGORIES.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
-                selectedCategory === category
-                  ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
-                  : 'bg-[#483C32]/5 text-[#483C32]/60 hover:bg-[#483C32]/10 hover:text-[#483C32]'
-              }`}
-            >
-              {CATEGORY_LABELS[category]}
-            </button>
-          ))}
+        <div className="relative">
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            {CATEGORIES.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+                  selectedCategory === category
+                    ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
+                    : 'bg-[#483C32]/5 text-[#483C32]/60 hover:bg-[#483C32]/10 hover:text-[#483C32]'
+                }`}
+              >
+                {CATEGORY_LABELS[category]}
+              </button>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent" />
         </div>
       </div>
 

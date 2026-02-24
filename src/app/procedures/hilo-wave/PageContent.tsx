@@ -225,10 +225,15 @@ export default function HiloWavePageContent() {
                 </div>
               </div>
               <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl">
-                <p
-                  className="text-[#483C32] text-base md:text-lg leading-relaxed mb-6 md:mb-8"
-                  dangerouslySetInnerHTML={{ __html: hiloWaveData.effects[3].content[0] }}
-                />
+                {hiloWaveData.effects[3].content.map((text, idx) => (
+                  <p
+                    key={idx}
+                    className={`text-[#483C32] text-base md:text-lg leading-relaxed ${
+                      idx < hiloWaveData.effects[3].content.length - 1 ? 'mb-4' : 'mb-6 md:mb-8'
+                    }`}
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
+                ))}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                   <div className="bg-[#e9e5e0] p-5 md:p-6 rounded-2xl border border-[#dcd8d4] flex flex-col justify-center">
                     <p className="font-bold text-[#483C32] text-base md:text-lg mb-2">힐로웨이브</p>

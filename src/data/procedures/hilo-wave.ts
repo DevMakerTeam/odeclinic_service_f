@@ -85,7 +85,9 @@ export const hiloWaveData = {
       image: productComparisonChart,
       imageAlt: '힐로웨이브와 스컬트라, 올리디아, 쥬베룩볼륨 비교',
       content: [
-        '모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다. 하지만 힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에 <span class="text-white bg-[#3F342D] px-1">시술 직후 즉각적으로 채워지고</span>, 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐 합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가 있습니다. 또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 콜라겐 합성이 과도하게 일어났을 때, 결절이라는 부작용이 생길 수도 있죠. <span class="text-white bg-[#3F342D] px-1">힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술</span>입니다.',
+        '모두 넓은 부위의 볼륨을 자연스럽게 채울 때 사용하는 시술들입니다.',
+        '하지만 힐로웨이브는 히알루론산 그 자체가 볼륨을 만들기 때문에 <span class="text-white bg-[#3F342D] px-1">시술 직후 즉각적으로 채워지고</span>, 쥬베룩볼륨, 스컬트라, 올리디아 등 PLLA 기반의 콜라겐 합성 촉진제들은 콜라겐 합성에 시간이 필요하기 때문에 효과가 나타날 때까지 수 개월이 소요된다는 차이가 있습니다.',
+        '또, 쥬베룩볼륨, 스컬트라, 올리디아의 경우, 결절이라는 부작용이 생길 수도 있죠. <span class="text-white bg-[#3F342D] px-1">힐로웨이브는 결절 등 부작용이 거의 없는 안전한 시술</span>입니다.',
       ],
       comparison: {
         option1: {
@@ -104,7 +106,7 @@ export const hiloWaveData = {
   maintenance: {
     title: '힐로웨이브 유지기간, 주기',
     content:
-      '힐로웨이브의 유지기간은 <span class="text-[#a58d7d] font-bold">6개월 전후</span>입니다.<br class="hidden md:block" />일반적으로 <span class="text-[#a58d7d] font-bold">6개월 간격으로 2회 반복 시술</span>을 권장드립니다.',
+      '힐로웨이브의 유지기간은 <span class="text-[#a58d7d] font-bold">6개월 전후</span>입니다.<br />일반적으로 <span class="text-[#a58d7d] font-bold">6개월 간격으로 2회 반복 시술</span>을 권장드립니다.',
   },
 
   // Pricing

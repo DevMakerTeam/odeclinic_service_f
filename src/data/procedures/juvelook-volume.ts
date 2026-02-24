@@ -9,7 +9,7 @@ import juvelookEffectChart from '@/assets/procedures/juvelook/juvelook-effect-ch
 import juvelookCollagenChart from '@/assets/procedures/juvelook/juvelook-collagen-chart.png';
 import treatmentAreas from '@/assets/procedures/common/treatment-areas.png';
 import vortexMixer from '@/assets/procedures/common/vortex-mixer.png';
-import oneBottleUsage from '@/assets/procedures/common/one-bottle-usage.png';
+import oneBottleUsage from '@/assets/procedures/juvelook/juvelook-3-2.png';
 import injectionTechnique from '@/assets/procedures/common/injection-technique.png';
 
 export const juvelookVolumeData = {
@@ -77,7 +77,7 @@ export const juvelookVolumeData = {
           number: '(1)',
           title: '철저한 수화 과정',
           description:
-            '입자가 뭉쳐있으면 콜라겐 과다 합성으로 인한 결절 리스크가 높아집니다. 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">볼텍스믹서로 30분 이상 수화</span>하여 결절 발생률을 최소화합니다.',
+            '입자가 뭉쳐있으면 콜라겐 과다 합성으로 인한 결절 리스크가 높아집니다.<br /><br />오드의원에서는 <span class="text-white bg-[#3F342D] px-1">볼텍스믹서로 30분 이상 수화</span>하여 결절 발생률을 최소화합니다.',
           image: vortexMixer,
           imageAlt: '쥬베룩볼륨 수화를 위한 볼텍스 믹서',
         },
@@ -85,7 +85,7 @@ export const juvelookVolumeData = {
           number: '(2)',
           title: 'cc가 아닌 한병 단위 사용',
           description:
-            '한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다. 따라서 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">한 병을 온전히 한 분에게 모두 사용</span>하고 남은 양은 폐기하고 있습니다.',
+            '한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다.<br /><br />따라서 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">한 병을 온전히 한 분에게 모두 사용</span>하고 남은 양은 폐기하고 있습니다.',
           image: oneBottleUsage,
           imageAlt: '오드의원 쥬베룩볼륨 시술량',
         },

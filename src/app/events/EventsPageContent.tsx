@@ -81,7 +81,7 @@ export default function EventsPageContent() {
         } satisfies EventResponseDto;
       });
       const mockItems: EventResponseDto[] = mockRaw.filter(
-        (item): item is EventResponseDto => item !== null,
+        (item): item is EventResponseDto => item !== null
       );
 
       setData({
@@ -161,9 +161,7 @@ export default function EventsPageContent() {
                       <div className="flex items-center gap-2 mb-2">
                         {item.tag && (
                           <span
-                            className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-white ${
-                              item.tag === 'HOT' ? 'bg-[#ff4d4d]' : 'bg-[#483C32]'
-                            }`}
+                            className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-white bg-[#483C32]`}
                           >
                             {item.tag}
                           </span>
@@ -172,7 +170,7 @@ export default function EventsPageContent() {
                       <h3 className="text-[19px] font-bold text-[#483C32] group-hover:text-black transition-colors leading-tight">
                         {item.title}
                       </h3>
-                      <p className="text-[#483C32]/50 text-sm line-clamp-1 leading-relaxed font-medium">
+                      <p className="text-[#483C32]/50 text-sm line-clamp-3 leading-relaxed font-medium">
                         {item.description}
                       </p>
                     </div>
@@ -206,7 +204,7 @@ export default function EventsPageContent() {
         )}
 
         {/* 페이지네이션 */}
-        {data && data.data.lastPage > 1 && (
+        {/* {data && data.data.lastPage > 1 && (
           <div className="mt-10 flex justify-center items-center gap-2">
             <button
               onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
@@ -233,16 +231,14 @@ export default function EventsPageContent() {
             </div>
 
             <button
-              onClick={() =>
-                handlePageChange(Math.min(data.data.lastPage, currentPage + 1))
-              }
+              onClick={() => handlePageChange(Math.min(data.data.lastPage, currentPage + 1))}
               disabled={currentPage === data.data.lastPage}
               className="p-2.5 rounded-xl border border-[#483C32]/10 bg-white text-[#483C32] disabled:opacity-30 disabled:pointer-events-none hover:bg-[#483C32]/5 transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

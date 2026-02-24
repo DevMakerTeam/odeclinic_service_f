@@ -66,7 +66,7 @@ PDLLA 시술 후, 피하지방층 두께의 변화
 
 한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다. 따라서 오드의원에서는 한 병을 온전히 한 분에게 모두 사용하고 남은 양은 폐기하고 있습니다. ("한 병을 온전히 한 분에게 모두 사용"에 하이라이트)
 
-![one-bottle-usage](./src/assets/procedures/common/one-bottle-usage.png)
+![one-bottle-usage](./src/assets/procedures/juvelook/juvelook-3-2.png)
 (alt =”오드의원 쥬베룩볼륨 시술량”) <- 위의 이미지에 alt속성으로 들어가야함
 
 (3) 숙련된 주입 테크닉

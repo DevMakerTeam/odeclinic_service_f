@@ -134,12 +134,20 @@ export default function XerfPageContent() {
                   />
                 </div>
 
-                <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl space-y-4">
+                <div className="bg-[#f4f0ec] p-5 md:p-8 rounded-3xl space-y-4 mb-6 md:mb-8">
                   {xerfData.specialSections.operatorDependent.bottomContent.map((text, idx) => (
                     <p key={idx} className="text-[#483C32] text-base md:text-lg leading-relaxed">
                       {text}
                     </p>
                   ))}
+                </div>
+
+                <div className="rounded-2xl overflow-hidden shadow-sm border border-[#e9e5e0]">
+                  <ImageWithFallback
+                    src={xerfData.specialSections.operatorDependent.bottomImage}
+                    alt={xerfData.specialSections.operatorDependent.bottomImageAlt}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
               </div>
             </div>

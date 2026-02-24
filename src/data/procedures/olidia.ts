@@ -9,6 +9,7 @@ import olidiaParticle from '@/assets/procedures/olidia/olidia-particle.png';
 import collagenChart from '@/assets/procedures/common/collagen-chart.png';
 import treatmentAreas from '@/assets/procedures/common/treatment-areas.png';
 import injectionTechnique from '@/assets/procedures/common/injection-technique.png';
+import olidiaOneBottle from '@/assets/procedures/olidia/olidia-3-2.png';
 
 export const olidiaData = {
   id: 'olidia',
@@ -73,13 +74,15 @@ export const olidiaData = {
           number: '(1)',
           title: '철저한 수화 과정',
           description:
-            '입자가 뭉쳐있으면 콜라겐 과다 합성으로 인한 결절 리스크가 높아집니다. 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">24시간 이상 수화</span>하여 결절 발생률을 최소화합니다.',
+            '입자가 뭉쳐있으면 콜라겐 과다 합성으로 인한 결절 리스크가 높아집니다.<br /><br />오드의원에서는 <span class="text-white bg-[#3F342D] px-1">24시간 이상 수화</span>하여 결절 발생률을 최소화합니다.',
         },
         {
           number: '(2)',
           title: 'cc가 아닌 한병 단위 사용',
           description:
-            '한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다. 따라서 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">한 병을 온전히 한 분에게 모두 사용</span>하고 남은 양은 폐기하고 있습니다.',
+            '한 바이알을 여러 명에게 사용하는 과정에서 감염 확률이 높아질 수 있고, 이는 곧 결절로 이어질 수 있습니다.<br /><br />따라서 오드의원에서는 <span class="text-white bg-[#3F342D] px-1">한 병을 온전히 한 분에게 모두 사용</span>하고 남은 양은 폐기하고 있습니다.',
+          image: olidiaOneBottle,
+          imageAlt: '오드의원 올리디아 시술량',
         },
         {
           number: '(3)',

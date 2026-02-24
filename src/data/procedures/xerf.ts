@@ -5,6 +5,7 @@ import xerfBefore2 from '@/assets/procedures/xerf/xerf-before-2.png';
 import xerfAfter2 from '@/assets/procedures/xerf/xerf-after-2.png';
 import point1 from '@/assets/procedures/xerf/point-1.png';
 import point2 from '@/assets/procedures/xerf/point-2.jpg';
+import point22 from '@/assets/procedures/xerf/point-2-2.png';
 import point3 from '@/assets/procedures/xerf/point-3.png';
 import qna1 from '@/assets/procedures/xerf/qna-1.png';
 
@@ -69,6 +70,8 @@ export const xerfData = {
         '오드의원은 2025년 전국 세르프 시술량 TOP 10 안에 선정된 공식 인증 클리닉입니다.',
         '오드의원 의료진은 풍부한 경험을 바탕으로 가장 효율적인 시술법을 연구하고 공유합니다.',
       ],
+      bottomImage: point22,
+      bottomImageAlt: '세르프 최다 시술 클리닉 TOP 10',
     },
 
     minimalDowntime: {

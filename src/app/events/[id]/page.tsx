@@ -96,7 +96,7 @@ export default function EventDetailPage() {
 
       const mockEvent: EventResponseDto = {
         id: Number(id),
-        title: `${id}번 시술 특별 할인`,
+        title: `[이벤트] ${id}번 시술 특별 할인`,
         description:
           '오직 이번 달에만 만날 수 있는 오드 클리닉의 특별한 혜택! 합리적인 가격으로 프리미엄 시술을 경험해보세요. 전문 의료진의 섬세한 상담과 맞춤형 시술이 진행됩니다. 본 이벤트는 한정된 기간 동안 제공되니 서둘러 예약하세요.',
         tag: id === '1' ? 'HOT' : id === '2' ? 'NEW' : 'EVENT',
@@ -141,23 +141,24 @@ export default function EventDetailPage() {
     );
   }
 
+  const cleanTitle = event.title.replace(/^\[[^\]]+\]\s*\d+번\s*/, '');
   const startDate = new Date(event.displayStartAt || '').toLocaleDateString('ko-KR');
   const endDate = new Date(event.displayEndAt || '').toLocaleDateString('ko-KR');
 
   return (
     <div className="w-full bg-[#fdfbf9] min-h-full pb-32">
       {/* 헤더 */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#483C32]/5 flex items-center h-14 px-4">
+      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#483C32]/5 flex items-center justify-between px-4 h-14">
         <button
           onClick={() => router.back()}
           className="p-2 hover:bg-[#483C32]/5 rounded-full transition-colors"
         >
           <ChevronLeft className="w-6 h-6 text-[#483C32]" />
         </button>
-        <h1 className="absolute left-1/2 -translate-x-1/2 text-base font-bold text-[#483C32] truncate max-w-[200px] pointer-events-none">
-          이벤트 상세
+        <h1 className="text-[15px] font-black text-[#483C32] truncate max-w-[220px] tracking-tight">
+          {cleanTitle}
         </h1>
-        <button className="p-2 hover:bg-[#483C32]/5 rounded-full transition-colors ml-auto">
+        <button className="p-2 hover:bg-[#483C32]/5 rounded-full transition-colors">
           <Share2 className="w-5 h-5 text-[#483C32]" />
         </button>
       </div>
@@ -173,7 +174,7 @@ export default function EventDetailPage() {
             )}
           </div>
           <h2 className="text-[28px] font-bold text-[#483C32] leading-tight tracking-tight">
-            {event.title}
+            {cleanTitle}
           </h2>
           <div className="flex items-center gap-4 text-[#483C32]/40 text-sm font-bold">
             <div className="flex items-center gap-1.5">
@@ -185,26 +186,6 @@ export default function EventDetailPage() {
           </div>
         </div>
 
-        {/* 가격 배너 */}
-        <div className="bg-[#483C32] rounded-[32px] p-8 text-white relative overflow-hidden shadow-2xl shadow-[#483C32]/20">
-          <div className="relative z-10 text-center space-y-4">
-            <span className="text-white/40 font-bold text-[10px] uppercase tracking-[4px]">
-              Exclusive Offer
-            </span>
-            <div className="flex flex-col items-center">
-              <span className="text-[44px] font-black leading-none tracking-tighter">
-                {event.minPrice?.toLocaleString()}원
-                <span className="text-xl font-medium ml-1">~</span>
-              </span>
-              <p className="mt-4 text-white/60 text-sm font-medium">
-                오직 오드 클리닉에서만 만나는 특별 혜택
-              </p>
-            </div>
-          </div>
-          <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute -left-10 -top-10 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
-        </div>
-
         {/* 이벤트 설명 */}
         <div className="space-y-6">
           <div className="flex items-center gap-2">
@@ -214,6 +195,15 @@ export default function EventDetailPage() {
           <p className="text-[#483C32]/70 text-[16px] leading-relaxed font-medium">
             {event.description}
           </p>
+
+          {/* 최저가 인라인 표시 */}
+          <div className="pb-6 mb-6 border-b border-[#483C32]/10">
+            <div className="flex items-baseline gap-2">
+              <span className="text-[22px] font-bold text-[#483C32] leading-none">
+                {event.minPrice?.toLocaleString()}원 ~
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* 상품 목록 */}
@@ -254,24 +244,29 @@ export default function EventDetailPage() {
                           </p>
                         )}
                       </div>
-                      {product.discountRate && (
-                        <div className="text-[14px] font-black text-[#ff4d4d]">
-                          {product.discountRate}% OFF
-                        </div>
-                      )}
+                      <div className="text-right">
+                        {product.discountRate && (
+                          <div className="text-[14px] font-black text-[#ff4d4d] mb-0.5">
+                            {product.discountRate}% OFF
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     <div className="flex items-end justify-between pt-4 border-t border-[#483C32]/5">
-                      <div className="flex flex-col">
-                        <span className="text-[#483C32]/20 text-[13px] font-bold line-through decoration-1">
-                          {product.price.toLocaleString()}원
-                        </span>
-                        <span className="text-[20px] font-black text-[#483C32] leading-none mt-1">
-                          {product.discountPrice
-                            ? product.discountPrice.toLocaleString()
-                            : product.price.toLocaleString()}
-                          원
-                        </span>
+                      <div className="flex items-end gap-1.5">
+                        <div className="flex flex-col">
+                          <span className="text-[#483C32]/20 text-[13px] font-bold line-through decoration-1">
+                            {product.price.toLocaleString()}원
+                          </span>
+                          <span className="text-[20px] font-black text-[#483C32] leading-none mt-1">
+                            {product.discountPrice
+                              ? product.discountPrice.toLocaleString()
+                              : product.price.toLocaleString()}
+                            원
+                          </span>
+                        </div>
+                        <span className="text-[11px] text-[#483C32]/60 font-medium mt-1.5">VAT 별도</span>
                       </div>
                       <button className="px-4 py-2.5 bg-[#483C32]/5 text-[#483C32] rounded-xl font-bold text-[13px] group-hover:bg-[#483C32] group-hover:text-white transition-all active:scale-95">
                         시술 담기
