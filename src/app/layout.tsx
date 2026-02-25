@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
 import ClientLayout from '@/components/layout/ClientLayout';
+import QueryProvider from '@/components/providers/QueryProvider';
 import '@/styles/index.css';
 
 export const metadata: Metadata = {
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 className: 'shadow-lg rounded-lg text-sm font-medium',
               }}
             />
-            <ClientLayout>{children}</ClientLayout>
+            <QueryProvider>
+              <ClientLayout>{children}</ClientLayout>
+            </QueryProvider>
           </div>
         </div>
       </body>
