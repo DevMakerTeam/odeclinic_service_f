@@ -199,23 +199,24 @@ export default function ProceduresPage() {
         </p>
 
         {/* 카테고리 필터 */}
-        <div className="relative">
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            {CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
-                    : 'bg-[#483C32]/5 text-[#483C32]/60 hover:bg-[#483C32]/10 hover:text-[#483C32]'
-                }`}
-              >
-                {CATEGORY_LABELS[category]}
-              </button>
-            ))}
-          </div>
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent" />
+        <div className="flex flex-col items-center gap-2">
+          {[CATEGORIES.slice(0, 2), CATEGORIES.slice(2)].map((row, rowIdx) => (
+            <div key={rowIdx} className="flex justify-center gap-2">
+              {row.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+                    selectedCategory === category
+                      ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
+                      : 'bg-[#483C32]/5 text-[#483C32]/60 hover:bg-[#483C32]/10 hover:text-[#483C32]'
+                  }`}
+                >
+                  {CATEGORY_LABELS[category]}
+                </button>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 

@@ -471,9 +471,7 @@ function LocationSection() {
               <span className="text-[#483C32] text-[15px] font-bold">AM 11 : 30 ~ PM 08 : 30</span>
             </div>
             <div className="flex items-center">
-              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">
-                주&nbsp;&nbsp;&nbsp;&nbsp;말 :{/* 토 - 일 : */}
-              </span>
+              <span className="text-[#483C32] text-[15px] font-bold min-w-[55px]">토 - 일 :</span>
               <span className="text-[#483C32] text-[15px] font-bold">AM 10 : 00 ~ PM 04 : 00</span>
             </div>
             <div className="mt-2">

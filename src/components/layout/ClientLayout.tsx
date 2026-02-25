@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
@@ -11,6 +11,20 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const router = useRouter();
   const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // 바깥 영역에서 휠 이벤트 발생 시 내부 스크롤 영역으로 전달
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      const inner = scrollRef.current;
+      if (!inner) return;
+      if (inner.contains(e.target as Node)) return;
+      inner.scrollTop += e.deltaY;
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
 
   useEffect(() => {
     // Initial check
@@ -180,7 +194,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </nav>
         </header>
 
-        <div className="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar">
           {children}
           <Footer />
         </div>
