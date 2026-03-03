@@ -1,118 +1,41 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { ChevronLeft, ChevronRight, TrendingUp } from 'lucide-react';
-
-interface EventResponseDto {
-  id: number;
-  title: string;
-  description?: string;
-  tag?: string;
-  lang?: string;
-  displayStartAt?: string;
-  displayEndAt?: string;
-  status: 'ACTIVE' | 'HIDDEN';
-  sortOrder: number;
-  minPrice?: number;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface EventResponse {
-  data: {
-    items: EventResponseDto[];
-    total: number;
-    page: number;
-    size: number;
-    lastPage: number;
-    nextPage: number | null;
-  };
-}
-
-const SIZE = 10;
+import { ChevronRight, TrendingUp } from 'lucide-react';
+import { eventService } from '@/api/services/eventService';
+import type { EventListItemResponseDto, EventListResponseDto } from '@/api/generated';
 
 export default function EventsPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const currentLang = searchParams.get('lang') || 'ko';
-  const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<EventResponse | null>(null);
-
-  const updateParams = (lang: string, page: number) => {
-    const params = new URLSearchParams();
-    params.set('lang', lang);
-    params.set('page', page.toString());
-    router.push(`/events?${params.toString()}`);
-  };
-
-  const handlePageChange = (page: number) => {
-    updateParams(currentLang, page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const [data, setData] = useState<EventListResponseDto | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 600));
-
-      const totalItems = 45;
-      const lastPage = Math.ceil(totalItems / SIZE);
-
-      const mockRaw: (EventResponseDto | null)[] = Array.from({ length: SIZE }, (_, i) => {
-        const id = (currentPage - 1) * SIZE + i + 1;
-        if (id > totalItems) return null;
-        return {
-          id,
-          title: `${id}번 이벤트 시술 할인 혜택`,
-          description: `오드 클리닉만의 특별한 ${id}번째 시술 제안! 지금 바로 상담받아보세요.`,
-          tag: id % 3 === 0 ? 'HOT' : id % 5 === 0 ? 'NEW' : 'EVENT',
+      setError(false);
+      try {
+        const result = await eventService.getList({
           lang: currentLang,
-          displayStartAt: '2026-02-01T00:00:00Z',
-          displayEndAt: '2026-02-28T23:59:59Z',
-          status: 'ACTIVE' as const,
-          sortOrder: id,
-          minPrice: 99000 + id * 1000,
-          createdAt: '2026-01-20T10:00:00Z',
-          updatedAt: '2026-01-20T10:00:00Z',
-        } satisfies EventResponseDto;
-      });
-      const mockItems: EventResponseDto[] = mockRaw.filter(
-        (item): item is EventResponseDto => item !== null
-      );
-
-      setData({
-        data: {
-          items: mockItems,
-          total: totalItems,
-          page: currentPage,
-          size: SIZE,
-          lastPage,
-          nextPage: currentPage < lastPage ? currentPage + 1 : null,
-        },
-      });
-      setLoading(false);
+          page: 1,
+          size: 1000,
+        });
+        setData(result);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchEvents();
-  }, [currentLang, currentPage]);
-
-  const paginationRange = useMemo(() => {
-    if (!data) return [];
-    const { lastPage, page } = data.data;
-    const maxVisible = 5;
-    let start = Math.max(1, page - Math.floor(maxVisible / 2));
-    const end = Math.min(lastPage, start + maxVisible - 1);
-    if (end - start + 1 < maxVisible) {
-      start = Math.max(1, end - maxVisible + 1);
-    }
-    const range: number[] = [];
-    for (let i = start; i <= end; i++) range.push(i);
-    return range;
-  }, [data]);
+  }, [currentLang]);
 
   return (
     <div className="w-full bg-[#f4f0ec] min-h-full pb-10">
@@ -147,9 +70,22 @@ export default function EventsPageContent() {
               </div>
             ))}
           </div>
-        ) : data?.data.items.length ? (
+        ) : error ? (
+          <div className="py-20 text-center space-y-4">
+            <div className="mx-auto w-16 h-16 bg-[#483C32]/5 rounded-full flex items-center justify-center">
+              <TrendingUp className="w-8 h-8 text-[#483C32]/20" />
+            </div>
+            <p className="text-[#483C32]/40 font-bold">데이터를 불러오지 못했습니다.</p>
+            <button
+              onClick={() => router.refresh()}
+              className="px-4 py-2 text-sm font-bold text-[#483C32] border border-[#483C32]/20 rounded-xl hover:bg-[#483C32]/5 transition-colors"
+            >
+              다시 시도
+            </button>
+          </div>
+        ) : data?.items.length ? (
           <div className="space-y-4">
-            {data.data.items.map((item) => (
+            {data.items.map((item: EventListItemResponseDto) => (
               <div
                 key={item.id}
                 onClick={() => router.push(`/events/${item.id}`)}
@@ -160,9 +96,7 @@ export default function EventsPageContent() {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         {item.tag && (
-                          <span
-                            className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-white bg-[#483C32]`}
-                          >
+                          <span className="px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase text-white bg-[#483C32]">
                             {item.tag}
                           </span>
                         )}
@@ -203,42 +137,6 @@ export default function EventsPageContent() {
           </div>
         )}
 
-        {/* 페이지네이션 */}
-        {/* {data && data.data.lastPage > 1 && (
-          <div className="mt-10 flex justify-center items-center gap-2">
-            <button
-              onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-              disabled={currentPage === 1}
-              className="p-2.5 rounded-xl border border-[#483C32]/10 bg-white text-[#483C32] disabled:opacity-30 disabled:pointer-events-none hover:bg-[#483C32]/5 transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-1.5 px-1">
-              {paginationRange.map((page) => (
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`w-10 h-10 rounded-xl text-sm font-bold transition-all ${
-                    currentPage === page
-                      ? 'bg-[#483C32] text-white shadow-md shadow-[#483C32]/20'
-                      : 'bg-white text-[#483C32]/60 border border-[#483C32]/5 hover:border-[#483C32]/30 hover:text-[#483C32]'
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={() => handlePageChange(Math.min(data.data.lastPage, currentPage + 1))}
-              disabled={currentPage === data.data.lastPage}
-              className="p-2.5 rounded-xl border border-[#483C32]/10 bg-white text-[#483C32] disabled:opacity-30 disabled:pointer-events-none hover:bg-[#483C32]/5 transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        )} */}
       </div>
     </div>
   );
