@@ -7,10 +7,16 @@ import { LanguageSelector } from '@/components/LanguageSelector';
 import { User, ShoppingBag } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({
+  children,
+  initialIsLoggedIn,
+}: {
+  children: React.ReactNode;
+  initialIsLoggedIn: boolean;
+}) {
   const router = useRouter();
   const pathname = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(initialIsLoggedIn);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // 바깥 영역에서 휠 이벤트 발생 시 내부 스크롤 영역으로 전달
@@ -27,25 +33,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   }, []);
 
   useEffect(() => {
-    // Initial check
-    const status = localStorage.getItem('isLoggedIn') === 'true';
-    setIsLoggedIn(status);
-
-    // Poll for changes or listen to storage events if needed, but for the toggle button it's fine.
-    // For smoother UX across tabs, a storage event listener is good.
-    const handleStorageChange = () => {
-      const status = localStorage.getItem('isLoggedIn') === 'true';
-      setIsLoggedIn(status);
+    const syncLoginState = () => {
+      const hasToken = document.cookie.includes('access_token=');
+      setIsLoggedIn(hasToken);
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    // Custom event for same-window updates
-    window.addEventListener('login-status-changed', handleStorageChange);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('login-status-changed', handleStorageChange);
-    };
+    window.addEventListener('login-status-changed', syncLoginState);
+    return () => window.removeEventListener('login-status-changed', syncLoginState);
   }, []);
 
   const navItems = [

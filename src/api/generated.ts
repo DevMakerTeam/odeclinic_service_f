@@ -149,6 +149,7 @@ export interface DoctorResponseDto {
   name: string;
   position?: string;
   jobTitle?: string;
+  photoUrl?: string;
   careers?: string[];
   schedules?: DoctorScheduleDto;
   lang?: string;
@@ -281,6 +282,31 @@ export interface BlogResponseDto {
 
 export interface BlogListResponseDto {
   items: BlogResponseDto[];
+  total: number;
+  page: number;
+  size: number;
+  lastPage: number;
+  nextPage: number;
+}
+
+// ─── Banner ───────────────────────────────────────────────────────────────────
+
+export interface BannerResponseDto {
+  id: number;
+  title: string;
+  imageUrl: string;
+  link?: string;
+  lang: string;
+  type: "MAIN" | "MAIN_SOLUTION";
+  startDate: string;
+  endDate: string;
+  sortOrder: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface BannerListResponseDto {
+  items: BannerResponseDto[];
   total: number;
   page: number;
   size: number;

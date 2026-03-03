@@ -1,8 +1,12 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { authService } from "@/api/services/authService";
 import type { SendSmsDto, VerifySmsDto } from "@/api/generated";
+import {
+  setAccessTokenCookie,
+  clearAccessTokenCookie,
+} from "@/lib/auth";
 
-export const useAuthKeys = {
+export const AUTH_KEYS = {
   all: ["auth"] as const,
 };
 
@@ -16,22 +20,26 @@ export const useVerifySms = () => {
   return useMutation({
     mutationFn: (dto: VerifySmsDto) => authService.verifySms(dto),
     onSuccess: (data) => {
-      if (typeof window !== "undefined") {
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-      }
+      if (typeof window === "undefined") return;
+      setAccessTokenCookie(data.accessToken);
+      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("refreshToken", data.refreshToken);
     },
   });
 };
 
 export const useLogout = () => {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: () => authService.logout(),
-    onSuccess: () => {
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-      }
+    onSettled: () => {
+      if (typeof window === "undefined") return;
+      clearAccessTokenCookie();
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      queryClient.clear();
+      window.dispatchEvent(new Event("login-status-changed"));
     },
   });
 };

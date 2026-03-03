@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ACCESS_TOKEN_COOKIE, setAccessTokenCookie, clearAccessTokenCookie } from "@/lib/auth";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.presso.site";
 
@@ -11,7 +12,10 @@ export const apiClient = axios.create({
 
 apiClient.interceptors.request.use((config) => {
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("accessToken");
+    const cookieMatch = document.cookie.match(
+      new RegExp(`(?:^|;\\s*)${ACCESS_TOKEN_COOKIE}=([^;]*)`)
+    );
+    const token = cookieMatch?.[1] ?? localStorage.getItem("accessToken");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -38,11 +42,13 @@ apiClient.interceptors.response.use(
         );
 
         const newToken = data.data.accessToken;
+        setAccessTokenCookie(newToken);
         localStorage.setItem("accessToken", newToken);
         originalRequest.headers.Authorization = `Bearer ${newToken}`;
 
         return apiClient(originalRequest);
       } catch {
+        clearAccessTokenCookie();
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         window.location.href = "/login";

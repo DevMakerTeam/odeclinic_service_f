@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { Toaster } from 'sonner';
 import ClientLayout from '@/components/layout/ClientLayout';
 import QueryProvider from '@/components/providers/QueryProvider';
+import { ACCESS_TOKEN_COOKIE } from '@/lib/auth';
 import '@/styles/index.css';
 
 export const metadata: Metadata = {
@@ -9,7 +11,10 @@ export const metadata: Metadata = {
   description: 'Premium aesthetic clinic',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies();
+  const isLoggedIn = !!cookieStore.get(ACCESS_TOKEN_COOKIE)?.value;
+
   return (
     <html lang="ko">
       <body className="font-sans antialiased">
@@ -27,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               }}
             />
             <QueryProvider>
-              <ClientLayout>{children}</ClientLayout>
+              <ClientLayout initialIsLoggedIn={isLoggedIn}>{children}</ClientLayout>
             </QueryProvider>
           </div>
         </div>

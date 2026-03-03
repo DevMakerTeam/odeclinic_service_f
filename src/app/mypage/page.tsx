@@ -2,15 +2,19 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useLogout } from '@/hooks/useAuth';
 
 export default function MyPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<'reservations' | 'visits'>('reservations');
+  const logoutMutation = useLogout();
 
   const handleLogout = () => {
-    localStorage.setItem('isLoggedIn', 'false');
-    window.dispatchEvent(new Event('login-status-changed'));
-    router.push('/login');
+    logoutMutation.mutate(undefined, {
+      onSettled: () => {
+        router.push('/login');
+      },
+    });
   };
 
   const reservations = [
@@ -95,9 +99,10 @@ export default function MyPage() {
             </div>
             <button 
               onClick={handleLogout}
-              className="text-xs text-[#8a7e75] border border-[#8a7e75]/30 px-3 py-1.5 rounded hover:bg-[#483C32] hover:text-white hover:border-[#483C32] transition-colors"
+              disabled={logoutMutation.isPending}
+              className="text-xs text-[#8a7e75] border border-[#8a7e75]/30 px-3 py-1.5 rounded hover:bg-[#483C32] hover:text-white hover:border-[#483C32] transition-colors disabled:opacity-50"
             >
-              로그아웃
+              {logoutMutation.isPending ? '처리중...' : '로그아웃'}
             </button>
           </div>
         </div>
