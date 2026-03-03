@@ -2,6 +2,7 @@
   "name": "odeclinic_service_f",
   "private": true,
   "version": "0.0.1",
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -71,6 +72,9 @@
     "tailwind-merge": "3.2.0",
     "tw-animate-css": "1.3.8",
     "vaul": "1.1.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp", "unrs-resolver"]
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
