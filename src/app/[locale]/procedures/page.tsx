@@ -18,6 +18,7 @@ import { thermageData } from '@/data/procedures/thermage';
 import { xerfData } from '@/data/procedures/xerf';
 import { densityAlphaData } from '@/data/procedures/density-alpha';
 import { coolsoniqData } from '@/data/procedures/coolsoniq';
+import { emfaceData } from '@/data/procedures/emface';
 
 // Mock Data
 type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
@@ -152,6 +153,14 @@ const PROCEDURES: Procedure[] = [
     description: densityAlphaData.info.description,
     price: '알파팁 600샷 180만원',
     image: densityAlphaData.hero.image,
+  },
+  {
+    id: 'emface',
+    category: 'lifting-tightening',
+    name: emfaceData.info.displayTitle,
+    description: emfaceData.info.description,
+    price: '1회 80만원',
+    image: emfaceData.hero.image,
   },
   {
     id: 'coolsoniq',
