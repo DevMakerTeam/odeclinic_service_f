@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { ChevronLeft, Share2 } from 'lucide-react';
 import { ImageWithFallback } from '@/components/common/ImageWithFallback';
 import type { StaticImageData } from 'next/image';

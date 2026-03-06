@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import Slider from 'react-slick';
 import { motion } from 'motion/react';
 import 'slick-carousel/slick/slick.css';

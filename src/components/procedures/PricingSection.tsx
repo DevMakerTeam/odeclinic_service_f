@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 
 interface PriceItem {
   name: string;

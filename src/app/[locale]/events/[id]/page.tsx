@@ -1,20 +1,29 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 import { ChevronLeft, Share2, Calendar, ShoppingCart, Check } from 'lucide-react';
 import { addToCart, isInCart } from '@/lib/cartStorage';
 import { toast } from 'sonner';
-import { eventService } from '@/api/services/eventService';
-import type { EventDetailResponseDto, ProductResponseDto } from '@/api/generated';
+import { useEventDetail } from '@/hooks/useEvents';
+import type { ProductResponseDto } from '@/api/generated';
 
 export default function EventDetailPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const [event, setEvent] = useState<EventDetailResponseDto | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const locale = useLocale();
+
+  const { data: event, isLoading: loading, isError: error } = useEventDetail(Number(id), locale);
   const [cartedIds, setCartedIds] = useState<Set<number>>(new Set());
+
+  // 데이터 로드 후 이미 장바구니에 담긴 항목 초기화
+  useEffect(() => {
+    if (event) {
+      setCartedIds(new Set(event.products.filter((p) => isInCart(p.id)).map((p) => p.id)));
+    }
+  }, [event]);
 
   const handleAddToCart = (product: ProductResponseDto) => {
     if (cartedIds.has(product.id)) {
@@ -40,28 +49,6 @@ export default function EventDetailPage() {
       },
     });
   };
-
-  useEffect(() => {
-    const fetchEventDetail = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const result = await eventService.getDetail(Number(id));
-        setEvent(result);
-
-        const alreadyCarted = new Set(
-          result.products.filter((p) => isInCart(p.id)).map((p) => p.id)
-        );
-        setCartedIds(alreadyCarted);
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEventDetail();
-  }, [id]);
 
   if (loading) {
     return (

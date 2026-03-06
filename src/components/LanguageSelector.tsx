@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown } from 'lucide-react';
 import hkFlag from '@/assets/icons/flags/flag-hk.png';
@@ -8,32 +7,29 @@ import koreaFlag from '@/assets/icons/flags/flag-korea.png';
 import chinaFlag from '@/assets/icons/flags/flag-china.png';
 import enFlag from '@/assets/icons/flags/flag-en.png';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from '@/i18n/navigation';
+import type { Locale } from '@/i18n/routing';
 
-const languages = [
-  {
-    code: 'ko',
-    label: '한국어',
-    flag: koreaFlag,
-  },
-  {
-    code: 'en',
-    label: 'English',
-    flag: enFlag,
-  },
-  {
-    code: 'zh-CN',
-    label: '中文(简体)',
-    flag: chinaFlag,
-  },
-  {
-    code: 'zh-TW',
-    label: '中文(繁體)',
-    flag: hkFlag,
-  },
+export type Language = 'ko' | 'en' | 'sc' | 'tc';
+
+const languages: { code: Language; label: string; flag: typeof koreaFlag }[] = [
+  { code: 'ko', label: '한국어', flag: koreaFlag },
+  { code: 'en', label: 'English', flag: enFlag },
+  { code: 'sc', label: '中文(简体)', flag: chinaFlag },
+  { code: 'tc', label: '中文(繁體)', flag: hkFlag },
 ];
 
 export function LanguageSelector() {
-  const [selected, setSelected] = useState(languages[0]);
+  const locale = useLocale() as Language;
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const selected = languages.find((l) => l.code === locale) ?? languages[0];
+
+  const handleSelect = (code: Locale) => {
+    router.replace(pathname, { locale: code });
+  };
 
   return (
     <DropdownMenu.Root>
@@ -57,24 +53,22 @@ export function LanguageSelector() {
         >
           {languages.map((lang) => (
             <DropdownMenu.Item
-                key={lang.code}
-                className="flex items-center gap-2 px-2 py-1.5 text-xs font-medium outline-none cursor-pointer hover:bg-black/5 rounded-md select-none transition-colors"
-                onSelect={() => setSelected(lang)}
-              >
-                <Image
-                  src={lang.flag}
-                  alt={lang.label}
-                  width={20}
-                  height={14}
-                  className="w-5 h-3.5 object-cover rounded-[1px] shadow-sm border border-black/10"
-                />
-                <span
-                  className={selected.code === lang.code ? 'text-[#1e2b39]' : 'text-[#1e2b39]/70'}
-                >
-                  {lang.label}
-                </span>
-              </DropdownMenu.Item>
-            ))}
+              key={lang.code}
+              className="flex items-center gap-2 px-2 py-1.5 text-xs font-medium outline-none cursor-pointer hover:bg-black/5 rounded-md select-none transition-colors"
+              onSelect={() => handleSelect(lang.code)}
+            >
+              <Image
+                src={lang.flag}
+                alt={lang.label}
+                width={20}
+                height={14}
+                className="w-5 h-3.5 object-cover rounded-[1px] shadow-sm border border-black/10"
+              />
+              <span className={selected.code === lang.code ? 'text-[#1e2b39]' : 'text-[#1e2b39]/70'}>
+                {lang.label}
+              </span>
+            </DropdownMenu.Item>
+          ))}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

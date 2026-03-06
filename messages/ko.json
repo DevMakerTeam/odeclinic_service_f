@@ -1,0 +1,49 @@
+{
+  "buttons": {
+    "cancel": "취소",
+    "back": "뒤로",
+    "next": "다음",
+    "submit": "저장",
+    "confirm": "확인",
+    "close": "닫기",
+    "more": "더 보기",
+    "reserve": "예약하기",
+    "inquiry": "문의하기"
+  },
+  "navigation": {
+    "home": "홈",
+    "about": "클리닉 소개",
+    "procedures": "시술",
+    "events": "이벤트",
+    "column": "컬럼",
+    "reservation": "예약",
+    "mypage": "마이페이지",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다.",
+    "notFound": "페이지를 찾을 수 없습니다.",
+    "language": "언어"
+  },
+  "auth": {
+    "login": "로그인",
+    "logout": "로그아웃",
+    "email": "이메일",
+    "password": "비밀번호",
+    "loginButton": "로그인",
+    "loginRequired": "로그인이 필요합니다."
+  },
+  "validations": {
+    "required": "필수 입력 항목입니다.",
+    "emailInvalid": "올바른 이메일 형식이 아닙니다.",
+    "passwordMin": "비밀번호는 최소 8자 이상이어야 합니다."
+  },
+  "notifications": {
+    "saveSuccess": "저장되었습니다.",
+    "saveFailed": "저장에 실패했습니다.",
+    "loginSuccess": "로그인되었습니다.",
+    "logoutSuccess": "로그아웃되었습니다."
+  }
+}

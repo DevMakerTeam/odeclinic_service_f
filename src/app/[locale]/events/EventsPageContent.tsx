@@ -1,41 +1,21 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React from 'react';
+import { useRouter } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 import { ChevronRight, TrendingUp } from 'lucide-react';
-import { eventService } from '@/api/services/eventService';
-import type { EventListItemResponseDto, EventListResponseDto } from '@/api/generated';
+import { useEventList } from '@/hooks/useEvents';
+import type { EventListItemResponseDto } from '@/api/generated';
 
 export default function EventsPageContent() {
-  const searchParams = useSearchParams();
   const router = useRouter();
+  const locale = useLocale();
 
-  const currentLang = searchParams.get('lang') || 'ko';
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<EventListResponseDto | null>(null);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setLoading(true);
-      setError(false);
-      try {
-        const result = await eventService.getList({
-          lang: currentLang,
-          page: 1,
-          size: 1000,
-        });
-        setData(result);
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, [currentLang]);
+  const { data, isLoading: loading, isError: error, refetch } = useEventList({
+    lang: locale,
+    page: 1,
+    size: 1000,
+  });
 
   return (
     <div className="w-full bg-[#f4f0ec] min-h-full pb-10">
@@ -77,7 +57,7 @@ export default function EventsPageContent() {
             </div>
             <p className="text-[#483C32]/40 font-bold">데이터를 불러오지 못했습니다.</p>
             <button
-              onClick={() => router.refresh()}
+              onClick={() => refetch()}
               className="px-4 py-2 text-sm font-bold text-[#483C32] border border-[#483C32]/20 rounded-xl hover:bg-[#483C32]/5 transition-colors"
             >
               다시 시도

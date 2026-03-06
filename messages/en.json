@@ -1,0 +1,49 @@
+{
+  "buttons": {
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Save",
+    "confirm": "Confirm",
+    "close": "Close",
+    "more": "More",
+    "reserve": "Book Now",
+    "inquiry": "Inquire"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "procedures": "Procedures",
+    "events": "Events",
+    "column": "Column",
+    "reservation": "Reservation",
+    "mypage": "My Page",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred.",
+    "notFound": "Page not found.",
+    "language": "Language"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loginRequired": "Login is required."
+  },
+  "validations": {
+    "required": "This field is required.",
+    "emailInvalid": "Please enter a valid email address.",
+    "passwordMin": "Password must be at least 8 characters."
+  },
+  "notifications": {
+    "saveSuccess": "Saved successfully.",
+    "saveFailed": "Failed to save.",
+    "loginSuccess": "Logged in successfully.",
+    "logoutSuccess": "Logged out successfully."
+  }
+}

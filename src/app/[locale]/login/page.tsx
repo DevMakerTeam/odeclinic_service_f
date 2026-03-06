@@ -5,7 +5,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { ChevronDown, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { useSendSms, useVerifySms } from '@/hooks/useAuth';

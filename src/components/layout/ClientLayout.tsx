@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { User, ShoppingBag } from 'lucide-react';
 import Footer from '@/components/layout/Footer';

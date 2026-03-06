@@ -1,0 +1,49 @@
+{
+  "buttons": {
+    "cancel": "取消",
+    "back": "返回",
+    "next": "下一步",
+    "submit": "保存",
+    "confirm": "确认",
+    "close": "关闭",
+    "more": "查看更多",
+    "reserve": "立即预约",
+    "inquiry": "咨询"
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "诊所介绍",
+    "procedures": "治疗项目",
+    "events": "活动",
+    "column": "专栏",
+    "reservation": "预约",
+    "mypage": "我的页面",
+    "login": "登录",
+    "logout": "退出登录"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误。",
+    "notFound": "找不到页面。",
+    "language": "语言"
+  },
+  "auth": {
+    "login": "登录",
+    "logout": "退出登录",
+    "email": "邮箱",
+    "password": "密码",
+    "loginButton": "登录",
+    "loginRequired": "需要登录。"
+  },
+  "validations": {
+    "required": "此项为必填项。",
+    "emailInvalid": "请输入有效的邮箱地址。",
+    "passwordMin": "密码至少需要8个字符。"
+  },
+  "notifications": {
+    "saveSuccess": "保存成功。",
+    "saveFailed": "保存失败。",
+    "loginSuccess": "登录成功。",
+    "logoutSuccess": "退出登录成功。"
+  }
+}

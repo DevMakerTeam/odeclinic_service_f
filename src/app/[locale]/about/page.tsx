@@ -2,6 +2,7 @@
 
 import { User } from 'lucide-react';
 import { ImageWithFallback } from '@/components/common/ImageWithFallback';
+import { useLocale } from 'next-intl';
 import { useDoctorList } from '@/hooks/useDoctors';
 import type { DoctorScheduleDto } from '@/api/generated';
 
@@ -37,7 +38,8 @@ const philosophyItems = [
 ];
 
 export default function AboutPage() {
-  const { data, isLoading } = useDoctorList();
+  const locale = useLocale();
+  const { data, isLoading } = useDoctorList({ lang: locale });
   const doctors = (data?.items ?? []).slice().sort((a, b) => a.sortOrder - b.sortOrder);
 
   return (
