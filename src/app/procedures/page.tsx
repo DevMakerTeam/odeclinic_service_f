@@ -16,6 +16,7 @@ import { ultherapyData } from '@/data/procedures/ultherapy';
 import { thermageData } from '@/data/procedures/thermage';
 import { xerfData } from '@/data/procedures/xerf';
 import { densityAlphaData } from '@/data/procedures/density-alpha';
+import { coolsoniqData } from '@/data/procedures/coolsoniq';
 
 // Mock Data
 type Category = 'volume' | 'lifting-tightening' | 'anti-aging' | 'skin-booster' | 'body-program';
@@ -150,6 +151,14 @@ const PROCEDURES: Procedure[] = [
     description: densityAlphaData.info.description,
     price: '알파팁 600샷 180만원',
     image: densityAlphaData.hero.image,
+  },
+  {
+    id: 'coolsoniq',
+    category: 'lifting-tightening',
+    name: coolsoniqData.info.displayTitle,
+    description: coolsoniqData.info.description,
+    price: '5000샷 110만원',
+    image: coolsoniqData.hero.image,
   },
 ];
 
