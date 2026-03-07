@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import { Link } from '@/i18n/navigation';
 import Slider from 'react-slick';
 import { motion } from 'motion/react';
@@ -392,6 +393,52 @@ function PhilosophySection() {
   );
 }
 
+function NaverMap() {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInitialized = useRef(false);
+
+  const initMap = () => {
+    if (!mapRef.current || mapInitialized.current) return;
+    if (typeof window === 'undefined' || !(window as any).naver?.maps) return;
+
+    mapInitialized.current = true;
+    const { naver } = window as any;
+
+    const location = new naver.maps.LatLng(37.498095, 127.028007);
+    const map = new naver.maps.Map(mapRef.current, {
+      center: location,
+      zoom: 17,
+      mapTypeControl: false,
+      scaleControl: false,
+      logoControl: false,
+      mapDataControl: false,
+    });
+
+    new naver.maps.Marker({
+      position: location,
+      map,
+      title: '오드클리닉',
+    });
+  };
+
+  useEffect(() => {
+    if ((window as any).naver?.maps) {
+      initMap();
+    }
+  }, []);
+
+  return (
+    <>
+      <Script
+        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
+        strategy="afterInteractive"
+        onLoad={initMap}
+      />
+      <div ref={mapRef} className="w-full h-full" />
+    </>
+  );
+}
+
 function LocationSection() {
   return (
     <section className="w-full pt-24 pb-20 bg-white overflow-hidden">
@@ -405,46 +452,8 @@ function LocationSection() {
         </h1>
       </div>
       <div className="w-full h-[400px] bg-gray-100 mb-12">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1569336415962-a4bd9f6dfc0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW91bCUyMG1hcCUyMG1vZGVybiUyMGFlc3RoZXRpY3xlbnwxfHx8fDE3NzE1OTI2MjV8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Location Map"
-          className="w-full h-full object-cover"
-        />
+        <NaverMap />
       </div>
-
-      {/* <div className="w-full px-5 space-y-8">
-        <div className="space-y-4">
-          <div className="space-y-1.5">
-            <h3 className="text-[18px] font-bold text-[#483C32] tracking-tight">병원 오시는길</h3>
-            <p className="text-[#483C32] text-[15px] font-medium leading-relaxed">
-              주소 : 서울특별시 강남구 강남대로 340, 8층(역삼동, 경원빌딩)
-            </p>
-          </div>
-          <div>
-            <p className="text-[#483C32] text-[15px] font-bold tracking-tight">TEL : 02-569-0222</p>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-[#483C32]/10 pb-10">
-          <h3 className="text-[18px] font-bold text-[#483C32] tracking-tight mb-4">진료시간 안내</h3>
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-2.5">
-              <span className="text-[#483C32]/60 text-[15px] font-medium">월 - 금</span>
-              <span className="text-[#483C32] text-[15px] font-bold">11:30 - 20:30</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <span className="text-[#483C32]/60 text-[15px] font-medium">토요일</span>
-              <span className="text-[#483C32] text-[15px] font-bold">10:00 - 16:00</span>
-            </div>
-            <div className="mt-3">
-              <p className="text-[12px] text-red-500 leading-relaxed font-medium">
-                * 점심시간 없이 진료하며,<br />
-                공휴일과 일요일은 휴진입니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div className="w-full px-7 space-y-6">
         {/* Contact Info */}
