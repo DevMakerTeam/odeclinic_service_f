@@ -404,7 +404,7 @@ function NaverMap() {
     mapInitialized.current = true;
     const { naver } = window as any;
 
-    const location = new naver.maps.LatLng(37.498095, 127.028007);
+    const location = new naver.maps.LatLng(37.493585, 127.030272);
     const map = new naver.maps.Map(mapRef.current, {
       center: location,
       zoom: 17,
